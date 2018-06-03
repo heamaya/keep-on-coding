@@ -1,0 +1,33 @@
+version: '2.1'
+
+services:
+  mysql:
+    image: heamaya/bookshelf-rest-api-mysql:5.7
+    container_name: bookshelf-rest-api-mysql
+    volumes:
+      - container-volume:/usr/share/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: amaya
+      MYSQL_DATABASE: bookshelf
+    ports:
+      - "127.0.0.1:3306:3306"
+    healthcheck:
+      test: "/etc/init.d/mysql status"
+      interval: 5s
+      timeout: 10s
+      retries: 5
+  bookshelf-rest-api:
+    container_name: bookshelf-rest-api
+    image: heamaya/bookshelf-rest-api:1.0
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+  nginx:
+    container_name: ng-bookshelf
+    image: heamaya/ng-bookshelf:1.0
+    ports:
+      - "80:80"
+volumes:
+  container-volume:

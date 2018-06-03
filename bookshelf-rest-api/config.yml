@@ -1,0 +1,17 @@
+server:
+  rootPath: /bookshelf/*
+
+
+logging:
+  level: INFO
+  loggers:
+    org.books: DEBUG
+
+database:
+    driverClass: com.mysql.jdbc.Driver
+    url: 'jdbc:mysql://bookshelf-rest-api-mysql:3306/bookshelf'
+    user: root
+    password: amaya
+
+
+

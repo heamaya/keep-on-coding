@@ -1,0 +1,45 @@
+<div class="ilst-group-item-heading">
+  <h2>ISBN: {{book.isbn}}</h2>
+  <h2>Title: {{book.title}}</h2>
+  <h3>Subtitle: {{book.subtitle}}</h3>
+</div>
+<div class="list-group-item-text">
+  <div class="row">
+    <div class="col-xs-8">
+      <h4>Authors:</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item list-group-item-success clearfix"
+          *ngFor="let author of book.authors">
+          <span class="text-danger"><b>{{author.name}}</b></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <span><b>Published:</b> {{book.published}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+    <span><b>Publisher:</b> {{book.publisher}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <span><b>Pages:</b> {{book.pages}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <span><b>Description:</b></span>
+      <p class="text-success">{{book.description}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <span><b>In stock:</b> {{book.inStock}}</span>
+    </div>
+  </div>
+</div>

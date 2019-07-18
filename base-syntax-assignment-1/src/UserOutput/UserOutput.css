@@ -1,0 +1,17 @@
+.user-ouput-poem-title {
+    color: darkblue;
+    font-weight: bold;
+}
+
+.user-output-poem {
+    border: 2px solid aquamarine;
+    color: darkblue;
+    padding: 2px;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.user-output-poem-author {
+    color: cornflowerblue;
+    font-weight: bold;
+}

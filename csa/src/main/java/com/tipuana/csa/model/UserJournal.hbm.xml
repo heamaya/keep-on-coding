@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="UserJournal" table="user_journal" batch-size="20">
+	
+		<composite-id name="id" class="UserJournal$Id">
+			<key-property name="userId" column="user_id"></key-property>
+			<key-property name="journalId" column="journal_id"></key-property>
+		</composite-id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>	
+		<property name="incomesAmount" column="incomes_amount" type="double" not-null="true" />
+		<property name="outcomesAmount" column="outcomes_amount" type="double" not-null="true" />
+		<property name="revenue" column="revenue" type="double" not-null="true" />
+		<property name="realRevenue" column="real_revenue" type="double" not-null="true" />
+		
+		<many-to-one name="user" column="user_id" insert="false" update="false" not-null="true" foreign-key="user_journal_user_fk" />
+		<many-to-one name="journal" column="journal_id" insert="false" update="false" not-null="true" foreign-key="user_journal_journal_fk" />
+		
+	</class>
+</hibernate-mapping>

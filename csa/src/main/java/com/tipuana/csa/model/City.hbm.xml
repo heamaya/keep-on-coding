@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+<class name="City" table="city" batch-size="20">
+
+	<id name="id" type="long" column="city_id">
+		<generator class="identity"/>
+	</id>
+
+	<version name="version" column="object_version" />
+	<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+	
+	<property name="name" type="string" column="`name`" length="256" not-null="true" />
+	<many-to-one name="province" class="Province" column="province_id" foreign-key="fk_city_province" not-null="false" />
+	
+	<set name="addresses" inverse="true">
+		<key column="city_id" foreign-key="fk_address_city" />
+		<one-to-many class="Address" />
+	</set>
+			
+</class>
+	
+</hibernate-mapping>

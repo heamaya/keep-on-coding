@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="PresentationPhoto" table="presentation_photo" batch-size="20">
+
+		<id name="id" type="long" column="presentation_photo_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="name" column="`name`" type="string" length="512" not-null="true" />
+		<property name="descriptionSpanish" column="description_es" type="string" length="1024" not-null="false" />
+		<property name="descriptionEnglish" column="description_en" type="string" length="1024" not-null="false" />
+		<property name="descriptionPortuguese" column="description_pt" type="string" length="1024" not-null="false" />
+		<property name="contentType" column="content_type" type="string" length="512" not-null="true" />
+		
+		<joined-subclass name="HomePresentationPhoto" table="home_presentation_photo" >
+			<key column="home_presentation_id" foreign-key="home_presentation_fk" />
+		</joined-subclass>	
+		
+		<joined-subclass name="TerracePresentationPhoto" table="terrace_presentation_photo" >
+			<key column="terrace_presentation_id" foreign-key="terrace_presentation_fk" />
+		</joined-subclass>
+		
+		<joined-subclass name="DikePresentationPhoto" table="dike_presentation_photo" >
+			<key column="dike_presentation_id" foreign-key="dike_presentation_fk" />
+		</joined-subclass>
+		
+		<joined-subclass name="ChannelPresentationPhoto" table="channel_presentation_photo" >
+			<key column="channel_presentation_id" foreign-key="channel_presentation_fk" />
+		</joined-subclass>
+		
+		<joined-subclass name="GullyRecoveryPresentationPhoto" table="gully_recovery_presentation_photo" >
+			<key column="gully_recovery_presentation_id" foreign-key="gully_recovery_presentation_fk" />
+		</joined-subclass>
+		
+		<joined-subclass name="ErosionPresentationPhoto" table="erosion_presentation_photo" >
+			<key column="erosion_presentation_id" foreign-key="erosion_presentation_fk" />
+		</joined-subclass>	
+		
+		<filter name="photoDescriptionInLanguage" condition="select pp.id, pp.version, pp.created, pp.name, pp.:descriptionInanguage, contentType from PresentationPhoto pp" />
+	</class>
+</hibernate-mapping>

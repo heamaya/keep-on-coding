@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="HeaderGullyWork" table="header_gully_work" batch-size="20">
+
+		<id name="id" type="long" column="header_gully_work_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		
+		<many-to-one name="systematizationProject" class="SystematizationProject" column="systematization_project_id" foreign-key="fk_header_gully_work_systematization_project" not-null="true" />
+		<property name="name" column="work_name" type="string" not-null="true" />
+		<property name="brickCount" column="brick_count" type="integer" not-null="false" />
+		<property name="blockCount" column="block_count" type="integer" not-null="false" />
+		<property name="iron" column="iron" type="integer" not-null="false" />
+		<property name="concrete" column="concrete" type="integer" not-null="false" />
+		<property name="ironThickness" column="iron_thickness" type="double" not-null="false" />
+		<property name="gabions" column="gabions" type="double" not-null="false" />
+		<property name="workState" column="work_state" type="work_state" not-null="false" />
+		<property name="type" column="header_gully_work_type" type="header_gully_work_type" not-null="false" />
+		
+		<component name="workStateDate" class="WorkStateDate">
+			<property name="projectedDate" column="projected_date" type="date" not-null="false" />
+			<property name="inProgressDate" column="in_progress_date" type="date" not-null="false" />
+			<property name="finishedDate" column="finished_date" type="date" not-null="false" />
+		</component>
+		
+		<many-to-one name="user" class="User" column="user_id" foreign-key="header_gully_work_user_fk" lazy="false" fetch="join" cascade="none" unique="false" not-null="true" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+        
+<tiles-definitions>
+	<definition name="SiteMapAction" template="/WEB-INF/jsp/visitor/siteMapLayout.jsp">
+		<put-attribute name="title" value="Conservación de Suelos y Agua" />
+		<put-attribute name="description" value="Mapa del Sitio Web de Conservación de Suelos y Agua." />
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/siteMap.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+	</definition>
+	<definition name="PresentationAction" template="/WEB-INF/jsp/visitor/layout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+	</definition>
+	<definition name="HomePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Conservación de Suelos y Agua" />
+		<put-attribute name="description" value="Asesoramiento profesional y dirección de obras de Conservación de Suelos y Agua a través de construcción de terrazas o terraceos, de diques o microembalses, canales, recuperación de cárcavas, rotación de cultivos, etc. Para controlar y combatir la erosión." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/homePresentation.jsp" />
+	</definition>
+	<definition name="NewsPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Noticias de Conservación de Suelos y Agua" />
+		<put-attribute name="description" value="Noticias sobre Conservación de Suelos y Agua, terrazas o terraceos, diques o microembalses, recuperación de cárcavas, etc." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/newsPresentation.jsp" />
+	</definition>
+	<definition name="DikePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Diques, Microembalses" />
+		<put-attribute name="description" value="Conservación de Suelos y Agua, la tecnología diques o microembalses, es una estructura de retención temporaria construida en predios rurales o en caminos públicos o internos de zonas rurales con el fin de contener y liberar progresivamente el agua que escurre luego de lluvias y precipitaciones para controlar la erosión hídrica" />		
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/dikePresentation.jsp" />
+	</definition>
+	<definition name="TerracePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Terrazas" />
+		<put-attribute name="description" value="Conservación de Suelos y Agua, la tecnología terrazas es un conjunto de pequeñas estructuras de retención temporaria paralelas, construidas en predios rurales, perpendiculares a la pendiente natural del terreno respetando la topografía del mismo, con el fin de retener el agua que escurre luego de lluvias y precipitaciones en el campo para controlar la erosión hídrica y aumentar el rendimiento del cultivo." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/terracePresentation.jsp" />
+	</definition>
+	<definition name="ChannelPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Canales" />
+		<put-attribute name="description" value="Conservación de Suelos y Agua, la tecnología canales consiste en rellenar las vías de escurrimiento naturales en los lugares erosionados por el escurrimiento de agua en los casos posible, y de ser necesario el diseño de un conjunto de desagües con el fin de conducir el agua que escurre luego de lluvias y precipitaciones estratégicamante a lo largo del predio." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/channelPresentation.jsp" />
+	</definition>
+	<definition name="GullyRecoveryPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Recuperación de Cárcavas" />
+		<put-attribute name="description" value="Conservación de Suelos y Agua, la tecnología recuperación de cárcavas consiste en la construcción de obras para evitar el avance de cárcavas o barrancas." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/gullyRecoveryPresentation.jsp" />
+	</definition>
+	<definition name="WhatDoWeDoPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Qué hacemos" />
+		<put-attribute name="description" value="Realizamos asesoramiento profesional y dirección de obras de Conservación de Suelos y Agua, con el fin de controlar la erosión hídrica, para hacer la producción de los suelos sostenible en el tiempo." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/whatDoWeDoPresentation.jsp" />
+	</definition>
+	<definition name="WhoAreWePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Quiénes Somos" />
+		<put-attribute name="description" value="Somos un equipo de profesionales con basta experiencia en el asesoramiento y en la dirección de obras de Conservación de Suelos y Agua, contamos con el conocimiento, el equipo y las herramientas necesarias para solucionar problemas generados por la erosión en predios rurales y en zonas aledañas. Nuestro trabajo y obras son una optimización para los predios rurales o campos que se mantiene en el tiempo, como así también para los caminos, y zonas aledañas." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/whoAreWePresentation.jsp" />
+	</definition>	
+	<definition name="ContactUsPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Contáctenos" />
+		<put-attribute name="description" value="Contactanos ante cualquier duda o inquietud, estamos a tu disposición para encontrar soluciones, para preservar, proteger y mejorar la calidad productiva y de vida de tu lugar y de tu zona." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/contactUsPresentation.jsp" />
+	</definition>
+	<definition name="AboutWebApplicationPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Sobre El Sitio Web" />
+		<put-attribute name="description" value="Contactanos ante cualquier duda o inquietud, estamos a tu disposición para encontrar soluciones, para preservar, proteger y mejorar la calidad productiva y de vida de tu lugar y de tu zona." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/aboutWebApplicationPresentation.jsp" />
+	</definition>	
+	<definition name="SystematizationPresentationAction" template="/WEB-INF/jsp/visitor/systematizationLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="title" value="Trabajos Destacados de Conservación de Suelos y Agua" />
+		<put-attribute name="description" value="Estos trabajos son ejemplos de nuestro arduo trabajo y dedicación a lo largo de los años, para mejorar la calidad productiva de los suelos, y para mejorar la calidad de vida de las personas que integran nuestro país." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/systematizationPresentation.jsp" />
+	</definition>
+	<definition name="ConsortiumPresentationAction" template="/WEB-INF/jsp/visitor/consortiumLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="title" value="Consorcios de Conservación de Suelos y Agua" />
+		<put-attribute name="description" value="Agrupaciones de productores agropecuarios con una meta en común, mejorar su entorno, preservar y sostener la producción en el tiempo, luchar contra la erosión hídrica, preservar caminos y poblados de inundaciones." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/consortiumPresentation.jsp" />
+	</definition>
+	<definition name="VideoPresentationAction" template="/WEB-INF/jsp/visitor/videoLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />	
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/header.jsp" />
+		<put-attribute name="title" value="Videos de Conservación de Suelos" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="description" value="Videos de Conservación de Suelos y Agua, sobre Erosión Hídrica, Canales, Terrazas, Diques o Microembalses, Recuperación de Cárcavas, Diseño y Construcción de Canales" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/videoPresentation.jsp" />
+	</definition>
+	<definition name="ErrorPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Conservación de Suelos y Agua" />
+		<put-attribute name="description" value="Error" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/error.jsp" />
+	</definition>
+</tiles-definitions>

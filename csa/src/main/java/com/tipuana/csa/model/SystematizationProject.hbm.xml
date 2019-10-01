@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="SystematizationProject" table="systematization_project" batch-size="20">
+	
+		<id name="id" type="long" column="systematization_project_id">
+			<generator class="identity" />
+		</id>
+		
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true" />
+		
+		<many-to-one name="systematization" class="Systematization" column="systematization_id" foreign-key="fk_systematization_project_systematization" not-null="true" />
+		<many-to-one name="user" class="User" column="user_id" foreign-key="systematization_project_user_fk" lazy="false" fetch="join" cascade="none" unique="false" not-null="true" />
+		
+		<property name="farmAreaFileName" column="farm_area_file_name" type="string" length="512" not-null="false" />
+		<property name="farmAreaContentType" column="farm_area_content_type" type="string" length="512" not-null="false" />
+		<property name="assessedHectares" column="assessed_hectares" type="double" not-null="false" />
+		
+		<component name="contract" class="Contract">
+			<property name="contractDate" column="contract_date" type="date" not-null="true"/>
+			<property name="fees" column="fees" type="integer" not-null="true" />
+			<property name="quintalsPerHectare" column="quintals_per_hectare" type="double" not-null="true" />
+			<property name="hiredHectares" column="hired_hectares" type="double" not-null="true" />
+		</component>
+		
+		<component name="terrace" class="Terrace">
+			<property name="groundVolume" column="ground_volume" type="double" not-null="false" />
+			<property name="linearMeters" column="linear_meters" type="double" not-null="false" />
+			<property name="workState" column="work_state" type="work_state" not-null="false" />
+			<property name="designedChannelCount" column="designed_channel_count" type="integer" not-null="false" />
+			
+			<component name="workStateDate" class="WorkStateDate">
+				<property name="projectedDate" column="projected_date" type="date" not-null="false" />
+				<property name="inProgressDate" column="in_progress_date" type="date" not-null="false" />
+				<property name="finishedDate" column="finished_date" type="date" not-null="false" />
+			</component>
+		</component>
+		
+		<component name="gullyRecovery" class="GullyRecovery">
+			<property name="gulliesSurface" column="gullies_surface" type="double" not-null="false" />
+			<property name="recoveredSurface" column="recovered_surface" type="double" not-null="false" />		
+		</component>
+		
+		<set name="payments" inverse="true">
+			<key column="systematization_project_id" />
+			<one-to-many class="Payment" />
+		</set>
+		
+		<set name="dikes" inverse="true">
+			<key column="systematization_project_id" />
+			<one-to-many class="Dike" />
+		</set>
+		
+		<set name="headerGullyWorks" inverse="true">
+			<key column="systematization_project_id" />
+			<one-to-many class="HeaderGullyWork" />
+		</set>
+	</class>
+</hibernate-mapping>

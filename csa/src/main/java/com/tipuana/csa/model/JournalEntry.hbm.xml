@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+	
+	<class name="JournalEntry" table="journal_entry" batch-size="20" >
+	
+		<id name="id" column="journal_entry_id" type="long" >
+			<generator class="identity" />
+		</id>
+	
+		<version name="version" column="object_version" />
+		<property name="created" type="date" not-null="true" column="created" />
+		<property name="entryDate" type="date" not-null="true" column="entry_date" />
+		<property name="description" type="string" not-null="true" column="description" />
+		<property name="amount" type="double" not-null="true" column="amount" />
+		<property name="isClosed" type="boolean" not-null="true" column="is_closed" />
+		<many-to-one name="user" class="User" column="user_id" foreign-key="journal_entry_user_fk" lazy="false" fetch="join" cascade="none" unique="false" not-null="true" />
+		
+		
+		<joined-subclass name="JournalIncomeEntry" table="journal_income_entry" >
+			<key column="journal_entry_id" foreign-key="journal_income_entry_id_fk" />
+			<property name="incomeType" type="journal_income_entry_type" column="income_type" not-null="true" />
+			<many-to-one name="journal" class="Journal" column="journal_id" foreign-key="journal_income_entry_journal_fk" lazy="false" fetch="join" cascade="all" unique="false" not-null="false" />
+		</joined-subclass>
+		
+		<joined-subclass name="JournalOutcomeEntry" table="journal_outcome_entry">
+			<key column="journal_entry_id" foreign-key="journal_outcome_entry_id_fk" />
+			<property name="outcomeType" type="journal_outcome_entry_type" column="outcome_type" not-null="true" />
+			<many-to-one name="journal" class="Journal" column="journal_id" foreign-key="journal_outcome_entry_journal_fk" lazy="false" fetch="join" cascade="all" unique="false" not-null="false" />
+		</joined-subclass>		
+	</class>
+
+</hibernate-mapping>

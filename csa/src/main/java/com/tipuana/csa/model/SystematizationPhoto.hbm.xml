@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="SystematizationPhoto" table="systematization_photo" batch-size="20">
+
+		<id name="id" type="long" column="systematization_photo_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="systematizationPhotoFileName" column="photo_file_name" type="string" length="512" not-null="true" />
+		<property name="systematizationPhotoContentType" column="content_type" type="string" length="512" not-null="true" />
+		<property name="descriptionSpanish" column="description_es" type="string" length="1024" not-null="false" />
+		<property name="descriptionEnglish" column="description_en" type="string" length="1024" not-null="false" />
+		<property name="descriptionPortuguese" column="description_pt" type="string" length="1024" not-null="false" />
+		
+		<joined-subclass name="SystematizationBeforePhoto" table="systematization_before_photo" >
+			<key column="systematization_before_photo_id" foreign-key="systematization_before_photo_fk" />
+			<many-to-one name="systematization" class="Systematization" column="systematization_id" foreign-key="systematization_before_photo_systematization_fk" lazy="false" fetch="join" />
+		</joined-subclass>
+		
+		<joined-subclass name="SystematizationAfterPhoto" table="systematization_after_photo" >
+			<key column="systematization_after_photo_id" foreign-key="systematization_after_photo_fk" />
+			<many-to-one name="systematization" class="Systematization" column="systematization_id" foreign-key="systematization_after_photo_systematization_fk" lazy="false" fetch="join" />
+		</joined-subclass>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+        
+<tiles-definitions>
+<definition name="SiteMapAction" template="/WEB-INF/jsp/visitor/siteMapLayout.jsp">
+		<put-attribute name="title" value="Soil and Water Conservation" />
+		<put-attribute name="description" value="Soil and Water Conservation Services Site Map." />
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/siteMap.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+	</definition>
+	<definition name="PresentationAction" template="/WEB-INF/jsp/visitor/layout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+	</definition>
+	<definition name="HomePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Soil and Water Conservation" />
+		<put-attribute name="description" value="Professional consultancy and work direction of Soil and Water Conservation Services: construction of terraces, dikes or microreservoirs, gully recovery, Crop Rotation Technic, etc. In order to controling and diminishing water erosion." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/homePresentation.jsp" />
+	</definition>
+	<definition name="NewsPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="News about Soil and Water Conservation Services" />
+		<put-attribute name="description" value="News about Soil and Water Conservation Services: construction of terraces, dikes or small dams, gully recovery, Crop Rotation Technic, etc. In order to controling and diminishing water erosion." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/newsPresentation.jsp" />
+	</definition>
+	<definition name="DikePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Dikes, Small Dams" />
+		<put-attribute name="description" value="Soil and Water Conservation Services: dikes or small dams technology, are temporal retaining structures built in rural properties or public or internal roads in rural areas in order to contain and gradually release the water that runs off after precipitation to control and diminish water erosion." />		
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/dikePresentation.jsp" />
+	</definition>
+	<definition name="TerracePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Terraces" />
+		<put-attribute name="description" value="Soil and Water Conservation Services: terraces are a set of small, parallel and temporal retaining structures built in rural properties as a system, perpendicular to the natural slope of the land respecting its topography, in order to retain the water that runs off after rainfall in farms to control water erosion and increase crop yield." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/terracePresentation.jsp" />
+	</definition>
+	<definition name="ChannelPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Channels" />
+		<put-attribute name="description" value="Soil and Water Conservation Services: channels consist in filling natural runoff paths in places eroded by water runoff where possible, and if necessary the design and construction of drains to convey precipitation runoff strategically along the farm in order to control and diminish water erosion." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/channelPresentation.jsp" />
+	</definition>
+	<definition name="GullyRecoveryPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Gullies Recovery" />
+		<put-attribute name="description" value="Soil and Water Conservation Services: gully recovery consists on building structures to prevent the advance of gullies, or if possible to recover formed gullies filling them with soil." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/gullyRecoveryPresentation.jsp" />
+	</definition>
+	<definition name="WhatDoWeDoPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="What Do We Do" />
+		<put-attribute name="description" value="We offer professional advice, project management, and works direction of Soil and Water Conservation Services, in order to control water erosion, and make soil production sustainable in time, increasing crop yield." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/whatDoWeDoPresentation.jsp" />
+	</definition>
+	<definition name="WhoAreWePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Who Are We" />
+		<put-attribute name="description" value="We are a team of professionals with extensive experience in advising and directing works of Soil and Water Conservation Services, we have the required knowledge, equipment and tools needed to solve problems caused by water erosion in rural properties and surrounding areas. The final result of a work is an optimization for the involved farm, as well as for roads, and surrounding areas, including other farms and towns." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/whoAreWePresentation.jsp" />
+	</definition>	
+	<definition name="ContactUsPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="description" value="Contact us with any questions or concerns, we are at your disposal to find solutions to preserve, protect and improve the productiveness of your farm as well as the quality of your life and of the people of its surroundings." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/contactUsPresentation.jsp" />
+	</definition>	
+	<definition name="ErrorPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Soil and Water Conservation" />
+		<put-attribute name="description" value="Error!" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/error.jsp" />
+	</definition>
+	<definition name="AboutWebApplicationPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="About the Site" />
+		<put-attribute name="description" value="Don't hessitate to contact if you have doubts or inquiries, we are at your disposal to find solutions, to preserve, protect and improve the quality of the production and life of your place." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/aboutWebApplicationPresentation.jsp" />
+	</definition>
+	<definition name="VideoPresentationAction" template="/WEB-INF/jsp/visitor/videoLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="title" value="Videos of Soil and Water Conservation" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="description" value=" Videos about Soil and Water Conservation, Water Erosion, Channels, Terraces, Dikes or Small Dams, Gullies Recovery" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/videoPresentation.jsp" />
+	</definition>
+	<definition name="SystematizationPresentationAction" template="/WEB-INF/jsp/visitor/systematizationLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="title" value="Starred Works of Soil and Water Conservation" />
+		<put-attribute name="description" value="These works are examples of our dedicated work during the passing and current years, to improve soil's productiveness, and our's countrymen quality of life." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/systematizationPresentation.jsp" />
+	</definition>
+	<definition name="ConsortiumPresentationAction" template="/WEB-INF/jsp/visitor/consortiumLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="title" value="Soil and Water Conservation Consortia" />
+		<put-attribute name="description" value="Groups of farmers with a common goal, improve their suroundings, preserve and sostain agricultural production, fight against water erosion, preserve roads and towns from flooding." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/consortiumPresentation.jsp" />
+	</definition>
+	<definition name="ErrorPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Soil and Water Conservation" />
+		<put-attribute name="description" value="Error" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/error.jsp" />
+	</definition>
+	<definition name="LoginAction" template="/WEB-INF/jsp/visitor/loginLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="title" value="Inicie sesión" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLanguages.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLanguages.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/loginPresentation.jsp" />
+		<put-attribute name="loginDialog" value="/WEB-INF/jsp/visitor/login.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+	</definition>
+	<definition name="AdministratorBase" template="/WEB-INF/jsp/setup/layout.jsp" >
+		<put-attribute name="header" value="/WEB-INF/jsp/setup/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/setup/menu.jsp"  />
+		<put-attribute name="footer" value="/WEB-INF/jsp/setup/footer.jsp"  />
+	</definition>
+	<definition name="PresentationPhoto" extends="AdministratorBase">
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/presentationPhoto.jsp" />
+	</definition>
+	<definition name="HomePresentationPhotoAction" extends="PresentationPhoto">
+		<put-attribute name="title" value="Presentatión Principal" />
+	</definition>
+	<definition name="TerracePresentationPhotoAction" extends="PresentationPhoto">
+		<put-attribute name="title" value="Presentatión Tecnología Terrazas" />
+	</definition>	
+	<definition name="DikePresentationPhotoAction" extends="PresentationPhoto">
+		<put-attribute name="title" value="Presentatión Tecnología Diques" />
+	</definition>
+	<definition name="ChannelPresentationPhotoAction" extends="PresentationPhoto">
+		<put-attribute name="title" value="Presentatión Tecnología Canales" />
+	</definition>
+	<definition name="GullyRecoveryPresentationPhotoAction" extends="PresentationPhoto">
+		<put-attribute name="title" value="Presentatión Tecnología Recuperación de Cárcava" />
+	</definition>
+	<definition name="ErosionPresentationPhotoAction" extends="PresentationPhoto">
+		<put-attribute name="title" value="Presentatión Qué Hacemos, Fotos de Erosión" />
+	</definition>
+	<definition name="VisitorMessageAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Mensajes enviados por Visitantes" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/visitorMessage.jsp" />
+	</definition>
+	<definition name="NewsAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Publicar Noticias" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/news.jsp" />
+	</definition>	
+	<definition name="LandAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Campos" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/land.jsp" />
+	</definition>
+	<definition name="CompanyAction" extends="AdministratorBase">
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/company.jsp" />
+	</definition>
+	<definition name="LegalPersonAction" extends="CompanyAction">
+		<put-attribute name="title" value="Persona Legal" />
+	</definition>
+	<definition name="AnonymousCommercialSocietyAction" extends="CompanyAction">
+		<put-attribute name="title" value="Sociedad Anónima" />
+	</definition>
+	<definition name="FactCommercialSocietyAction" extends="CompanyAction">
+		<put-attribute name="title" value="Sociedad de Hecho" />
+	</definition>
+	<definition name="LimitedResponsibilityCommercialSocietyAction" extends="CompanyAction">
+		<put-attribute name="title" value="Sociedad de Responsabilidad Limitada" />
+	</definition>
+	<definition name="SystematizationAction" template="/WEB-INF/jsp/setup/systematizationLayout.jsp">
+		<put-attribute name="title" value="Administrar Sistematizaciones" />
+		<put-attribute name="header" value="/WEB-INF/jsp/setup/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/setup/menu.jsp"  />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/systematization.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/setup/footer.jsp"  />
+	</definition>
+	
+	<definition name="SystematizationBeforePhotoAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Fotos Anteriores a Sistematización" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/systematizationPhoto.jsp" />
+	</definition>
+	<definition name="SystematizationAfterPhotoAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Fotos Posteriores a Sistematización" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/systematizationPhoto.jsp" />
+	</definition>
+	<definition name="ConsortiumAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Consorcios" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/consortium.jsp" />
+	</definition>
+	<definition name="ConsortiumPhotoAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Fotos de Consorcios" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/consortiumPhoto.jsp" />
+	</definition>
+	<definition name="AccountConfigurationAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Configurar Cuenta" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/accountConfiguration.jsp" />
+	</definition>
+	<definition name="UserAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Usuario" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/user.jsp" />
+	</definition>
+	<definition name="VideoAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Videos" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/video.jsp" />
+	</definition>
+	<definition name="FarmerAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Productores Agropecuarios" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/farmer.jsp" />
+	</definition>
+	<definition name="SystematizationProjectAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Proyectos de Sistematización" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/systematizationProject.jsp" />
+	</definition>
+	<definition name="DikeAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Diques" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/dike.jsp" />
+	</definition>
+	<definition name="HeaderGullyWorkAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Obras de Cabecera de Cárcava" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/headerGullyWork.jsp" />
+	</definition>
+	<definition name="PaymentAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Pagos" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/payment.jsp" />
+	</definition>
+	<definition name="JournalAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Cierres Mensuales" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/journal.jsp" />
+	</definition>
+	<definition name="JournalIncomeEntryAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Ingresos" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/journalEntry.jsp" />
+	</definition>
+	<definition name="JournalOutcomeEntryAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Administrar Egresos" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/journalEntry.jsp" />
+	</definition>
+	<definition name="JournalUtilityAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Utilidad Cierres de Mes" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/journalUtility.jsp" />
+	</definition>
+	<definition name="JournalEntryUtilityAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Utilidad Ingresos - Egresos" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/journalEntryUtility.jsp" />
+	</definition>
+	<definition name="JournalSummaryAction" extends="AdministratorBase">
+		<put-attribute name="title" value="Libro Diario" />
+		<put-attribute name="content" value="/WEB-INF/jsp/setup/journalSummary.jsp" />
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Person" table="person" batch-size="20">
+
+		<id name="id" type="long" column="person_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="firstName" type="string" column="first_name" length="256" not-null="true" />		
+		<property name="lastName" type="string" column="last_name" length="256" not-null="true" />
+		<property name="primaryTelephoneNumber" type="string" column="primary_telephone_number" not-null="false" />
+		<property name="secondaryTelephoneNumber" type="string" column="secondary_telephone_number" not-null="false" />
+		<property name="primaryCellPhoneNumber" type="string" column="primary_cell_phone_number" not-null="false" />
+		<property name="secondaryCellPhoneNumber" type="string" column="secondary_cell_phone_number" not-null="false" />
+		<property name="email" type="string" column="email" length="512" not-null="false" unique="false" />
+		<property name="secondaryEmail" type="string" column="secondary_email" length="256" not-null="false" />
+		<property name="comment" type="string" column="comment" length="2048" not-null="false" />	
+		<many-to-one name="address" class="Address" column="address_id" foreign-key="fk_person_address" lazy="false" fetch="join" cascade="save-update, delete" unique="true" />
+		
+		<joined-subclass name="Farmer" table="farmer" >
+			<key column="farmer_id" foreign-key="farmer_fk" />
+			
+			<set name="commercialSocieties" table="commercial_society_farmer" cascade="save-update">
+				<key column="farmer_id" />
+				<many-to-many class="CommercialSociety" column="commercial_society_id" foreign-key="farmer_commercial_society_farmer_fk" />
+			</set>
+			
+			<one-to-one name="legalPerson" property-ref="farmer" />
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>      
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd      
+           http://www.springframework.org/schema/aop
+      	   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+      	   http://www.springframework.org/schema/tx
+      	   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd						   
+      	   http://www.springframework.org/schema/context
+		   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		   http://www.springframework.org/schema/util
+		   http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<!-- comment the following line when using HibernateSchemaExporter	
+	<context:load-time-weaver weaver-class="org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver"/>
+	-->
+	
+	<util:map id="dbProps">
+   <!-- <postresql> -->
+         <!--
+   			<entry key="db.driver" value="org.postgresql.Driver"/>
+   			<entry key="db.jdbcurl" value="jdbc:postgresql://localhost:5432/com.tipuana.csa"/>
+   			<entry key="db.sql.dml" value="com.tipuana.csa-postgresql.ddl"/>
+   			<entry key="hb.hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+   		-->
+   <!-- </postresql> -->
+   <!-- <mysql> -->	
+    		<entry key="db.driver" value="com.mysql.jdbc.Driver"/>
+    		<entry key="db.jdbcUrl" value="jdbc:mysql://localhost/heamaya_csa"/>
+    		<entry key="db.sql.dml" value="mysql.ddl"/>
+    		<entry key="hb.hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+   <!-- </mysql> -->
+    	<entry key="db.username" value="heamaya_web"/>
+    	<entry key="db.password" value="CSAsalta80"/>
+    	
+    	<entry key="db.bdc.initialSize" value="1" />
+    	<entry key="db.bdc.maxActive" value="30" />
+    	<entry key="db.bdc.maxIdle" value="3" />
+    	<entry key="db.bdc.maxOpenPreparedStatements" value="300" />
+    	<entry key="db.bdc.maxWait" value="5000" />
+    	<entry key="db.bdc.minEvictableIdleTimeMillis" value="750000" />
+    	<entry key="db.bdc.minIdle" value="1" />
+    	<entry key="db.bdc.poolPreparedStatements" value="true" />
+    	<entry key="db.bdc.testOnBorrow" value="true" />
+    	<entry key="db.bdc.testOnReturn" value="true" />
+    	<entry key="db.bdc.testWhileIdle" value="true" />
+    	 
+    	<entry key="db.c3p0.acquireIncrement" value="1" />
+    	<entry key="db.c3p0.minPoolSize" value="1" />
+    	<entry key="db.c3p0.maxPoolSize" value="30" />
+    	<entry key="db.c3p0.maxConnectionAge" value="36000" />
+        <entry key="db.c3p0.maxIdleTime" value="36000" />
+        <entry key="db.c3p0.maxIdleTimeExcessConnections" value="600" />
+        <entry key="db.c3p0.idleConnectionTestPeriod" value="43200" />
+        <entry key="db.c3p0.testConnectionOnCheckin" value="true" />
+        <entry key="db.c3p0.automaticTestTable" value="test_entity" />
+        <entry key="db.c3p0.maxStatements" value="300" />
+        <entry key="db.c3p0.maxStatementsPerConnection" value="1500" />
+        <entry key="db.c3p0.acquireRetryAttempts" value="10" />
+        <entry key="db.c3p0.acquireRetryDelay" value="1" />
+        <entry key="db.c3p0.breakAfterAcquireFailure" value="false" />
+        <entry key="db.c3p0.forceIgnoreUnresolvedTransactions" value="true" />
+        <entry key="db.c3p0.unreturnedConnectionTimeout" value="60" />
+        <entry key="db.c3p0.debugUnreturnedConnectionStackTraces" value="false" />
+        <entry key="db.c3p0.checkoutTimeout" value="10000" />
+        
+    	<entry key="hb.connection.autocommit" value="false"/>
+    	<entry key="hb.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+    	<entry key="hb.cache.use_query_cache" value="false"/>
+    	<entry key="hb.cache.use_minimal_puts" value="false"/>
+    	<entry key="hb.max_fetch_depth" value="5"/>
+    	<entry key="hb.show_sql" value="true"/>
+    	<entry key="hb.format_sql" value="true"/>
+    	<entry key="hb.use_sql_comments" value="true"/>
+    	<entry key="hb.current_session_context_class" value="thread"/>
+    	<entry key="hb.hibernate.connection.characterEncoding" value="ISO-8859-1"/>
+    	<entry key="hb.hibernate.cache.region.factory_class" value="net.sf.ehcache.hibernate.EhCacheRegionFactory"/>    	
+	</util:map>	
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="properties" ref="dbProps"/>
+	</bean>
+	<!--
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${db.driver}"/>
+    	<property name="url" value="${db.jdbcUrl}"/>
+    	<property name="username" value="${db.username}"/>
+    	<property name="password" value="${db.password}"/>
+		
+		<property name="initialSize" value="${db.bdc.initialSize}" />
+		<property name="maxActive" value="${db.bdc.maxActive}" />
+		<property name="maxIdle" value="${db.bdc.maxIdle}" />
+		<property name="maxWait" value="${db.bdc.maxWait}" />
+		<property name="maxOpenPreparedStatements" value="${db.bdc.maxOpenPreparedStatements}" />
+		<property name="maxWait" value="${db.bdc.maxWait}" />
+		<property name="minEvictableIdleTimeMillis" value="${db.bdc.minEvictableIdleTimeMillis}" />
+		<property name="minIdle" value="${db.bdc.minIdle}" />
+		<property name="poolPreparedStatements" value="${db.bdc.poolPreparedStatements}" />
+		<property name="testOnBorrow" value="${db.bdc.testOnBorrow}" />
+		<property name="testOnReturn" value="${db.bdc.testOnReturn}" />
+		<property name="testWhileIdle" value="${db.bdc.testWhileIdle}" />
+	</bean>
+	-->
+   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${db.driver}" />
+		<property name="jdbcUrl" value="${db.jdbcUrl}" />
+        <property name="user" value="${db.username}" />
+        <property name="password" value="${db.password}" />
+        
+        <property name="acquireIncrement" value="${db.c3p0.acquireIncrement}" />
+        <property name="minPoolSize" value="${db.c3p0.minPoolSize}" />
+        <property name="maxPoolSize" value="${db.c3p0.maxPoolSize}" />
+        <property name="maxIdleTime" value="${db.c3p0.maxIdleTime}" />
+        <property name="maxConnectionAge" value="${db.c3p0.maxConnectionAge}" />
+        <property name="maxIdleTimeExcessConnections" value="${db.c3p0.maxIdleTimeExcessConnections}" />
+        <property name="idleConnectionTestPeriod" value="${db.c3p0.idleConnectionTestPeriod}" />
+        <property name="testConnectionOnCheckin" value="${db.c3p0.testConnectionOnCheckin}" />
+        <property name="automaticTestTable" value="${db.c3p0.automaticTestTable}" />
+        <property name="maxStatements" value="${db.c3p0.maxStatements}" />
+        <property name="maxStatementsPerConnection" value="${db.c3p0.maxStatementsPerConnection}" />
+        <property name="acquireRetryAttempts" value="${db.c3p0.acquireRetryAttempts}" />
+        <property name="acquireRetryDelay" value="${db.c3p0.acquireRetryDelay}" />
+		<property name="breakAfterAcquireFailure" value="${db.c3p0.breakAfterAcquireFailure}" />
+		<property name="forceIgnoreUnresolvedTransactions" value="${db.c3p0.forceIgnoreUnresolvedTransactions}" />
+		<property name="unreturnedConnectionTimeout" value="${db.c3p0.unreturnedConnectionTimeout}" />
+		<property name="debugUnreturnedConnectionStackTraces" value="${db.c3p0.debugUnreturnedConnectionStackTraces}" />
+		<property name="checkoutTimeout" value="${db.c3p0.checkoutTimeout}" />
+    </bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" >
+		<property name="dataSource" ref="dataSource" /> 
+		<property name="mappingResources">
+			<list>				
+				<value>/com/tipuana/csa/persistence/DynamicFilters.hbm.xml</value>
+				<value>/com/tipuana/csa/persistence/NamedQueries.hbm.xml</value>
+				<value>/com/tipuana/csa/persistence/UserTypes.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Address.hbm.xml</value>
+				<value>/com/tipuana/csa/model/City.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Province.hbm.xml</value>
+				<value>/com/tipuana/csa/model/User.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Person.hbm.xml</value>
+				<value>/com/tipuana/csa/model/PresentationPhoto.hbm.xml</value>
+				<value>/com/tipuana/csa/model/VisitorMessage.hbm.xml</value>
+				<value>/com/tipuana/csa/model/News.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Company.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Land.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Systematization.hbm.xml</value>
+				<value>/com/tipuana/csa/model/SystematizationPhoto.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Consortium.hbm.xml</value>
+				<value>/com/tipuana/csa/model/ConsortiumPhoto.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Video.hbm.xml</value>
+				<value>/com/tipuana/csa/model/SystematizationProject.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Dike.hbm.xml</value>
+				<value>/com/tipuana/csa/model/HeaderGullyWork.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Payment.hbm.xml</value>
+				<value>/com/tipuana/csa/model/Journal.hbm.xml</value>
+				<value>/com/tipuana/csa/model/JournalEntry.hbm.xml</value>
+				<value>/com/tipuana/csa/model/JournalUtility.hbm.xml</value>
+				<value>/com/tipuana/csa/model/JournalEntryUtility.hbm.xml</value>
+				<value>/com/tipuana/csa/model/UserJournal.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hb.hibernate.dialect}</prop>
+				<prop key="connection.autocommit">${hb.connection.autocommit}</prop>
+				<prop key="cache.provider_class">${hb.cache.provider_class}</prop>
+        		<prop key="cache.use_query_cache">${hb.cache.use_query_cache}</prop>
+		        <prop key="cache.use_minimal_puts">${hb.cache.use_minimal_puts}</prop>
+		        <prop key="max_fetch_depth">${hb.max_fetch_depth}</prop>
+		        <prop key="show_sql">${hb.show_sql}</prop>
+		        <prop key="format_sql">${hb.format_sql}</prop>
+		        <prop key="use_sql_comments">${hb.use_sql_comments}</prop>
+		        <prop key="current_session_context_class">${hb.current_session_context_class}</prop>
+		        <prop key="hibernate.connection.characterEncoding">${hb.hibernate.connection.characterEncoding}</prop> 
+		        <prop key="hibernate.cache.region.factory_class">${hb.hibernate.cache.region.factory_class}</prop>	
+			</props>
+		</property>
+	</bean>
+
+	<bean id="genericHibernateDAO" class="ro.dao.hibernate.GenericHibernateDAO" abstract="true" autowire="byName">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="sqlDmlFileName" class="java.lang.String">
+		<constructor-arg value="mysql.ddl" />
+	</bean>
+	 	
+	<tx:annotation-driven />
+</beans>

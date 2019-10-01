@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Dike" table="dike" batch-size="20">
+
+		<id name="id" type="long" column="dike_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="name" column="dike_name" type="string" length="1024" not-null="false" />
+		<property name="workState" column="work_state" type="work_state" not-null="false" />
+		
+		<component name="workStateDate" class="WorkStateDate">
+			<property name="projectedDate" column="projected_date" type="date" not-null="false" />
+			<property name="inProgressDate" column="in_progress_date" type="date" not-null="false" />
+			<property name="finishedDate" column="finished_date" type="date" not-null="false" />
+		</component>
+		
+		<property name="maximumHeight" column="maximum_height" type="double" not-null="false" />
+		<property name="maximumWidth" column="maximum_width" type="double" not-null="false" />
+		<property name="length" column="length" type="double" not-null="false" />
+		<property name="dikeSlope" column="dike_slope" type="dike_slope" not-null="false" />
+		<property name="groundVolume" column="ground_volume" type="double" not-null="false" />
+		<property name="slopeSurface" column="slope_surface" type="double" not-null="false" />
+		<property name="baseSurface" column="base_surface" type="double" not-null="false" />
+
+		<set name="outlets" table="outlet">
+			<key column="dike_id" foreign-key="dike_outlet_fk" />
+			
+			<composite-element class="Outlet">
+				<property name="outletNumber" column="outlet_number" not-null="true" />
+				<property name="diameter" column="diameter" not-null="false" />
+				<property name="inletHeight" column="inlet_height" not-null="false" />
+				<property name="outletHeight" column="outlet_height" not-null="false" />
+			</composite-element>
+		</set>
+		
+		<set name="spillways" table="spillway">
+			<key column="dike_id" foreign-key="dike_spillway_fk" />
+		
+			<composite-element class="Spillway">
+				<property name="spillwayNumber" column="spillway_number" not-null="true" />
+				<property name="height" column="height" not-null="false" />
+				<property name="length" column="length" not-null="false" />
+			</composite-element>		
+		</set>
+		
+		<many-to-one name="systematizationProject" class="SystematizationProject" column="systematization_project_id" foreign-key="fk_dike_systematization_project" not-null="true" />
+		<many-to-one name="user" class="User" column="user_id" foreign-key="dike_user_fk" lazy="false" fetch="join" cascade="none" unique="false" not-null="true" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		   http://www.springframework.org/schema/aop
+      	   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+      	   http://www.springframework.org/schema/tx
+      	   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd	
+           http://www.springframework.org/schema/context
+		   http://www.springframework.org/schema/context/spring-context-3.0.xsd">	
+
+	<bean id="provinceDAO" class="com.tipuana.csa.dao.hibernate.ProvinceDAOHibernate" parent="genericHibernateDAO" autowire="byName"/>
+	<bean id="cityDAO" class="com.tipuana.csa.dao.hibernate.CityDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="personDAO" class="com.tipuana.csa.dao.hibernate.PersonDAOHibernate" parent="genericHibernateDAO" autowire="byName" />	
+	<bean id="homePresentationPhotoDAO" class="com.tipuana.csa.dao.hibernate.HomePresentationPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="terracePresentationPhotoDAO" class="com.tipuana.csa.dao.hibernate.TerracePresentationPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="dikePresentationPhotoDAO" class="com.tipuana.csa.dao.hibernate.DikePresentationPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="channelPresentationPhotoDAO" class="com.tipuana.csa.dao.hibernate.ChannelPresentationPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="gullyRecoveryPresentationPhotoDAO" class="com.tipuana.csa.dao.hibernate.GullyRecoveryPresentationPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="erosionPresentationPhotoDAO" class="com.tipuana.csa.dao.hibernate.ErosionPresentationPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="visitorMessageDAO" class="com.tipuana.csa.dao.hibernate.VisitorMessageDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="newsDAO" class="com.tipuana.csa.dao.hibernate.NewsDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="genericCompanyDAO" class="com.tipuana.csa.dao.hibernate.GenericCompanyDAOHibernate" parent="genericHibernateDAO" autowire="byName" abstract="true"/>
+	<bean id="companyDAO" class="com.tipuana.csa.dao.hibernate.CompanyDAOHibernate" parent="genericCompanyDAO" autowire="no" />
+	<bean id="legalPersonDAO" class="com.tipuana.csa.dao.hibernate.LegalPersonDAOHibernate" parent="genericCompanyDAO" autowire="byName" />
+	<bean id="anonymousCommercialSocietyDAO" class="com.tipuana.csa.dao.hibernate.AnonymousCommercialSocietyDAOHibernate" parent="genericCompanyDAO" autowire="byName" />
+	<bean id="factCommercialSocietyDAO" class="com.tipuana.csa.dao.hibernate.FactCommercialSocietyDAOHibernate" parent="genericCompanyDAO" autowire="byName" />
+	<bean id="limitedResponsibilityCommercialSocietyDAO" class="com.tipuana.csa.dao.hibernate.LimitedResponsibilityCommercialSocietyDAOHibernate" parent="genericCompanyDAO" autowire="byName" />
+	<bean id="landDAO" class="com.tipuana.csa.dao.hibernate.LandDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="systematizationDAO" class="com.tipuana.csa.dao.hibernate.SystematizationDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="systematizationBeforePhotoDAO" class="com.tipuana.csa.dao.hibernate.SystematizationBeforePhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="systematizationAfterPhotoDAO" class="com.tipuana.csa.dao.hibernate.SystematizationAfterPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="consortiumDAO" class="com.tipuana.csa.dao.hibernate.ConsortiumDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="consortiumPhotoDAO" class="com.tipuana.csa.dao.hibernate.ConsortiumPhotoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="videoDAO" class="com.tipuana.csa.dao.hibernate.VideoDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="farmerDAO" class="com.tipuana.csa.dao.hibernate.FarmerDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="commercialSocietyDAO" class="com.tipuana.csa.dao.hibernate.CommercialSocietyDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="systematizationProjectDAO" class="com.tipuana.csa.dao.hibernate.SystematizationProjectDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="dikeDAO" class="com.tipuana.csa.dao.hibernate.DikeDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="headerGullyWorkDAO" class="com.tipuana.csa.dao.hibernate.HeaderGullyWorkDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="paymentDAO" class="com.tipuana.csa.dao.hibernate.PaymentDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="journalDAO" class="com.tipuana.csa.dao.hibernate.JournalDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="genericJournalEntryDAO" class="com.tipuana.csa.dao.hibernate.GenericJournalEntryDAOHibernate" abstract="true"/>
+	<bean id="journalEntryDAO" class="com.tipuana.csa.dao.hibernate.JournalEntryDAOHibernate" autowire="byName" parent="genericJournalEntryDAO" />
+	<bean id="journalIncomeEntryDAO" class="com.tipuana.csa.dao.hibernate.JournalIncomeEntryDAOHibernate" autowire="byName" parent="genericJournalEntryDAO" />
+	<bean id="journalOutcomeEntryDAO" class="com.tipuana.csa.dao.hibernate.JournalOutcomeEntryDAOHibernate" autowire="byName" parent="genericJournalEntryDAO" />
+	<bean id="journalUtilityDAO" class="com.tipuana.csa.dao.hibernate.JournalUtilityDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="journalEntryUtilityDAO" class="com.tipuana.csa.dao.hibernate.JournalEntryUtilityDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+	<bean id="userJournalDAO" class="com.tipuana.csa.dao.hibernate.UserJournalDAOHibernate" parent="genericHibernateDAO" autowire="byName" />
+		
+	<bean id="rootAction" class="com.tipuana.csa.action.RootAction" scope="prototype" />
+	
+	<bean id="siteMapEnAction" class="com.tipuana.csa.action.SiteMapAction" scope="prototype">
+		<property name="requestLocale" value="en" />
+	</bean>
+	<bean id="siteMapEsAction" class="com.tipuana.csa.action.SiteMapAction" scope="prototype">
+		<property name="requestLocale" value="es" />
+	</bean>
+	<bean id="siteMapPtAction" class="com.tipuana.csa.action.SiteMapAction" scope="prototype">
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="homePresentationAction" class="com.tipuana.csa.action.HomePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="homePresentationPhotoDAO" />
+	</bean>
+	
+	<bean id="homePresentationActionEs" class="com.tipuana.csa.action.HomePresentationAction" scope="prototype">
+		<property name="presentationPhotoDAO" ref="homePresentationPhotoDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="homePresentationActionEn" class="com.tipuana.csa.action.HomePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="homePresentationPhotoDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="homePresentationActionPt" class="com.tipuana.csa.action.HomePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="homePresentationPhotoDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="newsPresentationEnAction" class="com.tipuana.csa.action.NewsPresentationAction" scope="prototype" >
+		<property name="newsDAO" ref="newsDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="newsPresentationEsAction" class="com.tipuana.csa.action.NewsPresentationAction" scope="prototype" >
+		<property name="newsDAO" ref="newsDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="newsPresentationPtAction" class="com.tipuana.csa.action.NewsPresentationAction" scope="prototype" >
+		<property name="newsDAO" ref="newsDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+
+	<bean id="whatDoWeDoPresentationEnAction" class="com.tipuana.csa.action.WhatDoWeDoPresentationAction" scope="prototype">
+		<property name="presentationPhotoDAO" ref="erosionPresentationPhotoDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="whatDoWeDoPresentationEsAction" class="com.tipuana.csa.action.WhatDoWeDoPresentationAction" scope="prototype">
+		<property name="presentationPhotoDAO" ref="erosionPresentationPhotoDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="whatDoWeDoPresentationPtAction" class="com.tipuana.csa.action.WhatDoWeDoPresentationAction" scope="prototype">
+		<property name="presentationPhotoDAO" ref="erosionPresentationPhotoDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="whoAreWePresentationEsAction" class="com.tipuana.csa.action.WhoAreWePresentationAction" scope="prototype">
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="whoAreWePresentationEnAction" class="com.tipuana.csa.action.WhoAreWePresentationAction" scope="prototype">
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="whoAreWePresentationPtAction" class="com.tipuana.csa.action.WhoAreWePresentationAction" scope="prototype">
+		<property name="requestLocale" value="pt" />
+	</bean>
+		
+	<bean id="contactUsPresentationEnAction" class="com.tipuana.csa.action.ContactUsPresentationAction" scope="prototype">
+		<property name="visitorMessageDAO" ref="visitorMessageDAO" />
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="contactUsPresentationPtAction" class="com.tipuana.csa.action.ContactUsPresentationAction" scope="prototype">
+		<property name="visitorMessageDAO" ref="visitorMessageDAO" />
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="contactUsPresentationEsAction" class="com.tipuana.csa.action.ContactUsPresentationAction" scope="prototype">
+		<property name="visitorMessageDAO" ref="visitorMessageDAO" />
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="terracePresentationEnAction" class="com.tipuana.csa.action.TerracePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="terracePresentationPhotoDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="terracePresentationEsAction" class="com.tipuana.csa.action.TerracePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="terracePresentationPhotoDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="terracePresentationPtAction" class="com.tipuana.csa.action.TerracePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="terracePresentationPhotoDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+		
+	<bean id="dikePresentationEnAction" class="com.tipuana.csa.action.DikePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="dikePresentationPhotoDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="dikePresentationEsAction" class="com.tipuana.csa.action.DikePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="dikePresentationPhotoDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="dikePresentationPtAction" class="com.tipuana.csa.action.DikePresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="dikePresentationPhotoDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="channelPresentationEnAction" class="com.tipuana.csa.action.ChannelPresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="channelPresentationPhotoDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="channelPresentationEsAction" class="com.tipuana.csa.action.ChannelPresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="channelPresentationPhotoDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="channelPresentationPtAction" class="com.tipuana.csa.action.ChannelPresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="channelPresentationPhotoDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="gullyRecoveryPresentationEnAction" class="com.tipuana.csa.action.GullyRecoveryPresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="gullyRecoveryPresentationPhotoDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+
+	<bean id="gullyRecoveryPresentationEsAction" class="com.tipuana.csa.action.GullyRecoveryPresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="gullyRecoveryPresentationPhotoDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="gullyRecoveryPresentationPtAction" class="com.tipuana.csa.action.GullyRecoveryPresentationAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="gullyRecoveryPresentationPhotoDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="SystematizationPresentationIdsJSONAction" class="com.tipuana.csa.action.SystematizationPresentationIdsJSONAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+	</bean>
+	
+	<bean id="SystematizationPresentationJSONAction" class="com.tipuana.csa.action.SystematizationPresentationJSONAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+	</bean>
+	
+	<bean id="systematizationPresentationEsAction" class="com.tipuana.csa.action.SystematizationPresentationAction" scope="prototype">
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="systematizationPresentationPtAction" class="com.tipuana.csa.action.SystematizationPresentationAction" scope="prototype">
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="systematizationPresentationEnAction" class="com.tipuana.csa.action.SystematizationPresentationAction" scope="prototype">
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="ConsortiumPresentationIdsJSONAction" class="com.tipuana.csa.action.ConsortiumPresentationIdsJSONAction" scope="prototype">
+		<property name="consortiumDAO" ref="consortiumDAO" />
+	</bean>
+	
+	<bean id="ConsortiumPresentationJSONAction" class="com.tipuana.csa.action.ConsortiumPresentationJSONAction" scope="prototype">
+		<property name="consortiumDAO" ref="consortiumDAO" />
+	</bean>
+	
+	<bean id="consortiumPresentationEnAction" class="com.tipuana.csa.action.ConsortiumPresentationAction" scope="prototype">
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="consortiumPresentationEsAction" class="com.tipuana.csa.action.ConsortiumPresentationAction" scope="prototype">
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="consortiumPresentationPtAction" class="com.tipuana.csa.action.ConsortiumPresentationAction" scope="prototype">
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="aboutWebApplicationPresentationEnAction" class="com.tipuana.csa.action.AboutWebApplicationPresentationAction" scope="prototype">
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="aboutWebApplicationPresentationEsAction" class="com.tipuana.csa.action.AboutWebApplicationPresentationAction" scope="prototype">
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="aboutWebApplicationPresentationPtAction" class="com.tipuana.csa.action.AboutWebApplicationPresentationAction" scope="prototype">
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="videoPresentationEnAction" class="com.tipuana.csa.action.VideoPresentationAction" scope="prototype">
+		<property name="videoDAO" ref="videoDAO" />
+		<property name="requestLocale" value="en" />
+	</bean>
+	
+	<bean id="videoPresentationEsAction" class="com.tipuana.csa.action.VideoPresentationAction" scope="prototype">
+		<property name="videoDAO" ref="videoDAO" />
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="videoPresentationPtAction" class="com.tipuana.csa.action.VideoPresentationAction" scope="prototype">
+		<property name="videoDAO" ref="videoDAO" />
+		<property name="requestLocale" value="pt" />
+	</bean>
+		
+	<bean id="changeLocaleToEnglishAction" class="com.tipuana.csa.action.ChangeLocaleAction" scope="prototype" >
+		<property name="requestLocale" value="en" />
+	</bean>	
+	
+	<bean id="changeLocaleToSpanishAction" class="com.tipuana.csa.action.ChangeLocaleAction" scope="prototype" >
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="changeLocaleToPortugueseAction" class="com.tipuana.csa.action.ChangeLocaleAction" scope="prototype" >
+		<property name="requestLocale" value="pt" />
+	</bean>
+	
+	<bean id="reCaptcha" class="net.tanesha.recaptcha.ReCaptchaImpl">
+		<property name="privateKey" value="6LfItsMSAAAAAPvyKXXW_0tEQ5G3-qvWmJudGQUO" />
+		<property name="publicKey" value="6LfItsMSAAAAAA0bId08yCnXOHzB4sFOPZ0Qzgpl" />
+		<property name="recaptchaServer" value="https://api-secure.recaptcha.net" />
+		<property name="includeNoscript" value="false" />
+	</bean>	
+	
+	<bean id="loginAction" class="com.tipuana.csa.action.LoginAction" scope="prototype">
+		<property name="requestLocale" value="es" />
+	</bean>
+	
+	<bean id="redirectAction" class="com.tipuana.csa.action.RedirectAction" scope="prototype" />
+	
+	<bean id="HomePresentationPhotoAction" class="com.tipuana.csa.action.setup.HomePresentationPhotoAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="homePresentationPhotoDAO" />
+	</bean>
+	
+	<bean id="TerracePresentationPhotoAction" class="com.tipuana.csa.action.setup.TerracePresentationPhotoAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="terracePresentationPhotoDAO" />
+	</bean>
+		
+	<bean id="DikePresentationPhotoAction" class="com.tipuana.csa.action.setup.DikePresentationPhotoAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="dikePresentationPhotoDAO" />
+	</bean>
+	
+	<bean id="ChannelPresentationPhotoAction" class="com.tipuana.csa.action.setup.ChannelPresentationPhotoAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="channelPresentationPhotoDAO" />
+	</bean>
+	
+	<bean id="GullyRecoveryPresentationPhotoAction" class="com.tipuana.csa.action.setup.GullyRecoveryPresentationPhotoAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="gullyRecoveryPresentationPhotoDAO" />
+	</bean>
+	
+	<bean id="ErosionPresentationPhotoAction" class="com.tipuana.csa.action.setup.ErosionPresentationPhotoAction" scope="prototype" >
+		<property name="presentationPhotoDAO" ref="erosionPresentationPhotoDAO" />
+	</bean>	
+	
+	<bean id="VisitorMessageAction" class="com.tipuana.csa.action.setup.VisitorMessageAction" scope="prototype" >
+		<property name="visitorMessageDAO" ref="visitorMessageDAO" />
+	</bean>
+	
+	<bean id="NewsAction" class="com.tipuana.csa.action.setup.NewsAction" scope="prototype" >
+		<property name="newsDAO" ref="newsDAO" />
+	</bean>
+	
+	<bean id="LandAction" class="com.tipuana.csa.action.setup.LandAction" scope="prototype">
+		<property name="companyDAO" ref="companyDAO" />
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+		<property name="landDAO" ref="landDAO" />
+	</bean>
+	
+	<bean id="addressAction" class="com.tipuana.csa.action.setup.AddressAction" abstract="true" >
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />	
+	</bean>
+	
+	<bean id="companyAction" class="com.tipuana.csa.action.setup.CompanyAction" abstract="true" parent="addressAction" />
+	
+		
+	<bean id="abstractLegalPersonAction" class="com.tipuana.csa.action.setup.AbstractLegalPersonAction" abstract="true" parent="companyAction">
+		<property name="farmerDAO" ref="farmerDAO" />
+	</bean>
+	
+	<bean id="LegalPersonAction" class="com.tipuana.csa.action.setup.LegalPersonAction" scope="prototype" parent="abstractLegalPersonAction" >
+		<property name="companyDAO" ref="legalPersonDAO" />
+	</bean>
+	
+	<bean id="QuickLegalPersonAction" class="com.tipuana.csa.action.setup.QuickLegalPersonAction" scope="prototype" parent="abstractLegalPersonAction" >
+		<property name="companyDAO" ref="legalPersonDAO" />
+		<property name="quickCompanyDAO" ref="companyDAO" />
+	</bean>
+	
+	<bean id="commercialSocietyAction" class="com.tipuana.csa.action.setup.CommercialSocietyAction" abstract="true" parent="companyAction">
+		<property name="farmerDAO" ref="farmerDAO" />
+		<property name="commercialSocietyDAO" ref="commercialSocietyDAO" />
+	</bean>
+
+	<bean id="FactCommercialSocietyAction" class="com.tipuana.csa.action.setup.FactCommercialSocietyAction" scope="prototype" parent="commercialSocietyAction">
+		<property name="companyDAO" ref="factCommercialSocietyDAO" />
+	</bean>
+	
+	<bean id="LimitedResponsibilityCommercialSocietyAction" class="com.tipuana.csa.action.setup.LimitedResponsibilityCommercialSocietyAction" scope="prototype" parent="commercialSocietyAction">
+		<property name="companyDAO" ref="limitedResponsibilityCommercialSocietyDAO" />
+	</bean>				
+	
+	<bean id="AnonymousCommercialSocietyAction" class="com.tipuana.csa.action.setup.AnonymousCommercialSocietyAction" scope="prototype" parent="commercialSocietyAction">
+		<property name="companyDAO" ref="anonymousCommercialSocietyDAO" />
+	</bean>
+	
+	<bean id="quickCommercialSocietyAction" class="com.tipuana.csa.action.setup.QuickCommercialSocietyAction" abstract="true" parent="commercialSocietyAction" >
+		<property name="quickCompanyDAO" ref="companyDAO" />
+	</bean>
+	
+	<bean id="QuickFactCommercialSocietyAction" class="com.tipuana.csa.action.setup.QuickFactCommercialSocietyAction" scope="prototype" parent="quickCommercialSocietyAction">
+		<property name="companyDAO" ref="factCommercialSocietyDAO" />
+	</bean>
+
+	<bean id="QuickLimitedResponsibilityCommercialSocietyAction" class="com.tipuana.csa.action.setup.QuickLimitedResponsibilityCommercialSocietyAction" scope="prototype" parent="quickCommercialSocietyAction" >	
+		<property name="companyDAO" ref="limitedResponsibilityCommercialSocietyDAO" />
+	</bean>
+	
+	<bean id="QuickAnonymousCommercialSocietyAction" class="com.tipuana.csa.action.setup.QuickAnonymousCommercialSocietyAction" scope="prototype" parent="quickCommercialSocietyAction" >
+		<property name="companyDAO" ref="anonymousCommercialSocietyDAO" />
+	</bean>	
+	
+	<bean id="cityJSONAction" class="com.tipuana.csa.action.setup.CityJSONAction" scope="prototype">
+		<property name="cityDAO" ref="cityDAO" />
+	</bean>
+	
+	<bean id="QuickProvinceAction" class="com.tipuana.csa.action.setup.QuickProvinceAction" scope="prototype" autowire="byName">
+		<property name="provinceDAO" ref="provinceDAO" />
+	</bean>
+	
+	<bean id="QuickCityAction" class="com.tipuana.csa.action.setup.QuickCityAction" scope="prototype" autowire="byName">
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+	</bean>
+	
+	<bean id="QuickLandAction" class="com.tipuana.csa.action.setup.QuickLandAction" scope="prototype" autowire="byName">
+		<property name="companyDAO" ref="companyDAO" />
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+		<property name="landDAO" ref="landDAO" />
+	</bean>
+
+	<bean id="LandBoundariesDownloadFileAction" class="com.tipuana.csa.action.util.LandBoundariesDownloadFileAction" scope="prototype">
+		<property name="landDAO" ref="landDAO" />
+	</bean>
+	
+	<bean id="SystematizationDownloadFileAction" class="com.tipuana.csa.action.util.SystematizationDownloadFileAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+	</bean>
+	
+	<bean id="SystematizationBeforePhotoDownloadFileAction" class="com.tipuana.csa.action.util.SystematizationBeforePhotoDownloadFileAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+	</bean>
+
+	<bean id="SystematizationAfterPhotoDownloadFileAction" class="com.tipuana.csa.action.util.SystematizationAfterPhotoDownloadFileAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+	</bean>
+	
+	<bean id="SystematizationBeforePhotosJSONAction" class="com.tipuana.csa.action.SystematizationBeforePhotosJSONAction" scope="prototype">
+		<property name="systematizationPhotoDAO" ref="systematizationBeforePhotoDAO" />
+	</bean>
+
+	<bean id="SystematizationAfterPhotosJSONAction" class="com.tipuana.csa.action.SystematizationAfterPhotosJSONAction" scope="prototype">
+		<property name="systematizationPhotoDAO" ref="systematizationAfterPhotoDAO" />
+	</bean>
+	
+	<bean id="ConsortiumDownloadFileAction" class="com.tipuana.csa.action.util.ConsortiumDownloadFileAction" scope="prototype">
+		<property name="consortiumDAO" ref="consortiumDAO" />
+	</bean>
+	
+	<bean id="ConsortiumPhotoDownloadFileAction" class="com.tipuana.csa.action.util.ConsortiumPhotoDownloadFileAction" scope="prototype">
+		<property name="consortiumDAO" ref="consortiumDAO" />
+	</bean>	
+	
+	<bean id="ConsortiumPhotosJSONAction" class="com.tipuana.csa.action.ConsortiumPhotosJSONAction" scope="prototype">
+		<property name="consortiumPhotoDAO" ref="consortiumPhotoDAO" />
+	</bean>
+	
+	<bean id="UserAction" class="com.tipuana.csa.action.setup.UserAction" scope="prototype">
+		<property name="userDAO" ref="userDAO" />
+		<property name="personDAO" ref="personDAO" />
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+	</bean>
+	
+	<bean id="personAction" class="com.tipuana.csa.action.setup.PersonAction" abstract="true" parent="addressAction" />
+	
+	<bean id="FarmerAction" class="com.tipuana.csa.action.setup.FarmerAction" scope="prototype" parent="personAction">
+		<property name="personDAO" ref="farmerDAO" />
+	</bean>
+	
+	<bean id="QuickFarmerAction" class="com.tipuana.csa.action.setup.QuickFarmerAction" scope="prototype" parent="FarmerAction" />
+	
+	<bean id="HomePresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.HomePresentationPhotoDownloadFileAction" scope="prototype" />
+	<bean id="TerracePresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.TerracePresentationPhotoDownloadFileAction" scope="prototype" />
+	<bean id="DikePresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.DikePresentationPhotoDownloadFileAction" scope="prototype" />
+	<bean id="ChannelPresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.ChannelPresentationPhotoDownloadFileAction" scope="prototype" />
+	<bean id="GullyRecoveryPresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.GullyRecoveryPresentationPhotoDownloadFileAction" scope="prototype" />
+	<bean id="WhoWeArePresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.WhoWeArePresentationPhotoDownloadFileAction" scope="prototype" />
+	<bean id="ErosionPresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.ErosionPresentationPhotoDownloadFileAction" scope="prototype" />
+	<bean id="NewsPresentationPhotoDownloadFileAction" class="com.tipuana.csa.action.util.NewsPresentationPhotoDownloadFileAction" scope="prototype" />
+
+	<bean id="SystematizationAction" class="com.tipuana.csa.action.setup.SystematizationAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+		<property name="landDAO" ref="landDAO" />
+		<property name="companyDAO" ref="companyDAO" />
+	</bean>
+	
+	<bean id="landJSONAction" class="com.tipuana.csa.action.setup.LandJSONAction" scope="prototype">
+		<property name="landDAO" ref="landDAO" />
+	</bean>
+
+	<bean id="SystematizationBeforePhotoAction" class="com.tipuana.csa.action.setup.SystematizationBeforePhotoAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+		<property name="systematizationPhotoDAO" ref="systematizationBeforePhotoDAO" />
+	</bean>
+	
+	<bean id="SystematizationAfterPhotoAction" class="com.tipuana.csa.action.setup.SystematizationAfterPhotoAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+		<property name="systematizationPhotoDAO" ref="systematizationAfterPhotoDAO" />
+	</bean>
+	
+	<bean id="ConsortiumAction" class="com.tipuana.csa.action.setup.ConsortiumAction" scope="prototype">
+		<property name="consortiumDAO" ref="consortiumDAO" />
+	</bean>
+	
+	<bean id="ConsortiumPhotoAction" class="com.tipuana.csa.action.setup.ConsortiumPhotoAction" scope="prototype">
+		<property name="consortiumDAO" ref="consortiumDAO" />
+		<property name="consortiumPhotoDAO" ref="consortiumPhotoDAO" />
+	</bean>	
+	
+	<bean id="AccountConfigurationAction" class="com.tipuana.csa.action.setup.AccountConfigurationAction" scope="prototype">
+		<property name="personDAO" ref="personDAO" />
+		<property name="userDAO" ref="userDAO" />
+		<property name="provinceDAO" ref="provinceDAO" />
+		<property name="cityDAO" ref="cityDAO" />
+	</bean>
+	
+	<bean id="VideoAction" class="com.tipuana.csa.action.setup.VideoAction" scope="prototype">
+		<property name="videoDAO" ref="videoDAO" />
+	</bean>
+	
+	<bean id="SystematizationProjectAction" class="com.tipuana.csa.action.setup.SystematizationProjectAction" scope="prototype">
+		<property name="systematizationProjectDAO" ref="systematizationProjectDAO" />
+		<property name="systematizationDAO" ref="systematizationDAO" />
+	</bean>
+	
+	<bean id="DikeAction" class="com.tipuana.csa.action.setup.DikeAction" scope="prototype">
+		<property name="dikeDAO" ref="dikeDAO" />
+		<property name="systematizationProjectDAO" ref="systematizationProjectDAO" />
+	</bean>
+	
+	<bean id="PaymentAction" class="com.tipuana.csa.action.setup.PaymentAction" scope="prototype">
+		<property name="paymentDAO" ref="paymentDAO" />
+		<property name="systematizationProjectDAO" ref="systematizationProjectDAO" />
+	</bean>
+	
+	<bean id="HeaderGullyWorkAction" class="com.tipuana.csa.action.setup.HeaderGullyWorkAction" scope="prototype">
+		<property name="headerGullyWorkDAO" ref="headerGullyWorkDAO" />
+		<property name="systematizationProjectDAO" ref="systematizationProjectDAO" />
+	</bean>
+	
+	<bean id="QuickSystematizationAction" class="com.tipuana.csa.action.setup.QuickSystematizationAction" scope="prototype">
+		<property name="systematizationDAO" ref="systematizationDAO" />
+		<property name="landDAO" ref="landDAO" />
+		<property name="companyDAO" ref="companyDAO" />
+	</bean>
+	
+	<bean id="JournalAction" class="com.tipuana.csa.action.setup.JournalAction" scope="prototype">
+		<property name="journalDAO" ref="journalDAO" />
+		<property name="journalIncomeEntryDAO" ref="journalIncomeEntryDAO" />
+		<property name="journalOutcomeEntryDAO" ref="journalOutcomeEntryDAO" />
+		<property name="userJournalDAO" ref="userJournalDAO" />
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean id="JournalEntryAction" class="com.tipuana.csa.action.setup.JournalEntryAction" abstract="true">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean id="JournalIncomeEntryAction" class="com.tipuana.csa.action.setup.JournalIncomeEntryAction" scope="prototype" parent="JournalEntryAction">
+		<property name="journalEntryDAO" ref="journalIncomeEntryDAO" />
+	</bean>
+
+	<bean id="JournalOutcomeEntryAction" class="com.tipuana.csa.action.setup.JournalOutcomeEntryAction" scope="prototype" parent="JournalEntryAction">
+		<property name="journalEntryDAO" ref="journalOutcomeEntryDAO" />
+	</bean>
+	
+	<bean id="JournalUtilityAction" class="com.tipuana.csa.action.setup.JournalUtilityAction">
+		<property name="journalDAO" ref="journalDAO" />
+		<property name="journalUtilityDAO" ref="journalUtilityDAO" />
+		<property name="journalIncomeEntryDAO" ref="journalIncomeEntryDAO" />
+		<property name="journalOutcomeEntryDAO" ref="journalOutcomeEntryDAO" />
+		<property name="userJournalDAO" ref="userJournalDAO" />
+	</bean>
+	
+	<bean id="JournalEntryUtilityAction" class="com.tipuana.csa.action.setup.JournalEntryUtilityAction">
+		<property name="journalEntryUtilityDAO" ref="journalEntryUtilityDAO" />
+		<property name="journalIncomeEntryDAO" ref="journalIncomeEntryDAO" />
+		<property name="journalOutcomeEntryDAO" ref="journalOutcomeEntryDAO" />
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean id="JournalSummaryAction" class="com.tipuana.csa.action.setup.JournalSummaryAction" scope="prototype">
+		<property name="journalDAO" ref="journalDAO" />
+		<property name="journalIncomeEntryDAO" ref="journalIncomeEntryDAO" />
+		<property name="journalOutcomeEntryDAO" ref="journalOutcomeEntryDAO" />
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+</beans>

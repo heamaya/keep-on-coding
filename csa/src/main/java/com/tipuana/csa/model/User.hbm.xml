@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="User" table="`user`" batch-size="20">
+
+		<id name="id" type="long" column="user_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="username" type="string" column="`username`" length="256" not-null="true" unique="true" />
+		<property name="password" type="string" column="`password`" length="256" not-null="true" />
+		<property name="role" type="role" column="role" length="256" not-null="true" />
+		<property name="enabled" type="boolean" column="enabled" not-null="true" />
+		<many-to-one name="person" class="Person" column="person_id" foreign-key="fk_user_person" lazy="false" fetch="join" cascade="save-update" unique="true" />
+	</class>
+	
+</hibernate-mapping>

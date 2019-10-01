@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+        
+<tiles-definitions>
+	<definition name="SiteMapAction" template="/WEB-INF/jsp/visitor/siteMapLayout.jsp">
+		<put-attribute name="title" value="Conservação de Solos e Água" />
+		<put-attribute name="description" value="Mapa do Site de Conservação de Solos e Água." />
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/siteMap.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+	</definition>
+	<definition name="PresentationAction" template="/WEB-INF/jsp/visitor/layout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+	</definition>
+	<definition name="HomePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Conservação de Solos e Água" />
+		<put-attribute name="description" value="Aconselhamento profissional e gerenciamento de projetos de Conservação de Solo e Água através da construção de terraços, pequenas represas ou barragens , canais, recuperação de voçorocas, rotação de cultivos, etc. Para controlar e diminuir a erosão hídrica." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/homePresentation.jsp" />
+	</definition>
+	<definition name="NewsPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Notícias de Conservação de Solos e Água" />
+		<put-attribute name="description" value="Notícias sobre Conservação de Solo e Água, terraços, barragens ou pequenas represas, recuperação de voçorocas, canais, rotação de cultivos, etc." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/newsPresentation.jsp" />
+	</definition>
+	<definition name="DikePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Barragens, Pequenas Represas" />
+		<put-attribute name="description" value="Conservação de solos e água, barragens  o represas de pequeno porte, é uma estrutura temporária de retenção construída em propriedades rurais ou vias públicas ou internas em áreas rurais, a fim de conter e liberar gradualmente a água que escorre depois das chuvas para controlar erosão hídrica." />		
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/dikePresentation.jsp" />
+	</definition>
+	<definition name="TerracePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Terraços" />
+		<put-attribute name="description" value="Conservação de solos e água, os terraços são um conjunto de pequenas estruturas de retenção temporárias paralelas construídas em propriedades rurais perpendiculais ao declive natural do terreno respeitando a topografia do mesmo, a fim de reter a água que escorre depois da chuva nos campos para controlar a erosão hídrica e aumentar a produtividade dos cultivos." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/terracePresentation.jsp" />
+	</definition>
+	<definition name="ChannelPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Canais" />
+		<put-attribute name="description" value="Conservação de Solos e Água, quando se fala de canais, o primeiro consiste em preencher os caminhos naturais de escoamento em locais com erosão pelo escoamento da água sempre que seja possível, e se for necessário projetar, disenhar e construir um conjunto de canais de drenagem para transportar água dum jeito ótimo e estratégico ao longo da propriedade." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/channelPresentation.jsp" />
+	</definition>
+	<definition name="GullyRecoveryPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Recuperação de Voçorocas" />
+		<put-attribute name="description" value="Conservação de solo e água, a Recuperação de Voçorocas consiste na construção de obras para impedir o avanço das voçorocas e ravinas. Também se for possivél, consiste em acrescentar terra nas voçorocas para recupear essa área para cultivar." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/gullyRecoveryPresentation.jsp" />
+	</definition>
+	<definition name="WhatDoWeDoPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="O Que fazemos" />
+		<put-attribute name="description" value="Aconselhamento e Gerenciamento de Projetos de Conservação de Solo e Água, a fim de controlar a erosão hídrica, para que a produção seja sustentável ao longo do tempo." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/whatDoWeDoPresentation.jsp" />
+	</definition>
+	<definition name="WhoAreWePresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Quem Somos" />
+		<put-attribute name="description" value="Somos uma equipe de profissionais com vasta experiência em aconselhar e dirigir obras de Conservação de Solo y Água, temos o conhecimento, equipamentos e ferramentas necessárias para resolver os problemas causados ​​pela erosão hídrica nas propriedades rurais e áreas vizinhas. Nosso trabalho e as obras são uma otimização para propriedades rurais ou campos que é mantida ao longo do tempo, bem como para proteger caminhos e zonas circundantes." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/whoAreWePresentation.jsp" />
+	</definition>	
+	<definition name="ContactUsPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Fale Conosco" />
+		<put-attribute name="description" value="Fale conosco por qualquer pergunta ou dúvida, estamos à sua disposição para encontrar soluções para preservar, proteger e melhorar a qualidade produtiva dos solos, da sua vida e da sua área." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/contactUsPresentation.jsp" />
+	</definition>	
+	<definition name="ErrorPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Conservação de Solos y Água" />
+		<put-attribute name="description" value="" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/error.jsp" />
+	</definition>
+	<definition name="SystematizationPresentationAction" template="/WEB-INF/jsp/visitor/systematizationLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="title" value="Trabalhos em Destaque de Conservação de Solos e Água" />
+		<put-attribute name="description" value="Estes Trabalhos são exemplos do nosso grande trabalho e dedicação ao longo dos anos, para melhorar a qualidade produtiva dos solos, e a qualidade de vida das pessoas que formam parte do nosso país." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/systematizationPresentation.jsp" />
+	</definition>
+	<definition name="ConsortiumPresentationAction" template="/WEB-INF/jsp/visitor/consortiumLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="title" value="Consórcios de Conservação de Solos e Água" />
+		<put-attribute name="description" value="Grupos de produtores agrícolas com um objetivo comum, melhorar o ambiente, preservar e manter a produção agrícola ao longo do tempo, combater a erosão hídrica, conservar estradas rurais e cidades das inundações." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/consortiumPresentation.jsp" />
+	</definition>		
+	<definition name="AboutWebApplicationPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Sobre El Sitio Web" />
+		<put-attribute name="description" value="Fale conosco por qualquer pergunta ou dúvida, estamos à sua disposição para encontrar soluções para preservar, proteger e melhorar a qualidade produtiva dos solos, da sua vida e da sua área." />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/aboutWebApplicationPresentation.jsp" />
+	</definition>
+	<definition name="VideoPresentationAction" template="/WEB-INF/jsp/visitor/videoLayout.jsp">
+		<put-attribute name="actions" value="/WEB-INF/jsp/visitor/actions.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/visitor/headerWithoutLogin.jsp" />
+		<put-attribute name="title" value="Vídeos de Conservação de Solos e Água" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/visitor/menuWithoutLogin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/visitor/footer.jsp" />
+		<put-attribute name="description" value="Vídeos de Conservação de Solos y Água, sob Eroção Hídrica, Canais, Terraços, Barregens ou Pequenas Represas, Recuperação de Voçorocas, Disenho de Canais" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/videoPresentation.jsp" />
+	</definition>
+		<definition name="ErrorPresentationAction" extends="PresentationAction">
+		<put-attribute name="title" value="Conservação de Solos e Água" />
+		<put-attribute name="description" value="Error" />
+		<put-attribute name="content" value="/WEB-INF/jsp/visitor/error.jsp" />
+	</definition>
+</tiles-definitions>

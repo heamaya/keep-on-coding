@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Land" table="land" batch-size="20">
+
+		<id name="id" type="long" column="land_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true" />
+		
+		<many-to-one name="company" class="Company" column="company_id" foreign-key="fk_land_company" not-null="true" />
+		<property name="name" column="`name`" type="string" length="512" not-null="true" />
+		<property name="description" column="description" type="string" length="1024" not-null="false" />		
+		<many-to-one name="nearestProvince" class="Province" column="nearest_province_id" foreign-key="land_province_fk" lazy="false" fetch="join" not-null="false" />
+		<many-to-one name="nearestCity" class="City" column="nearest_city_id" foreign-key="land_city_fk" lazy="false" fetch="join" not-null="false" />
+		<property name="nearestCityDistance" column="nearest_city_distance" type="double" not-null="false" />
+		<property name="surfaceArea" column="surface_area" type="double" not-null="false" />
+		<property name="boundariesFileName" column="boundaries_file_name" type="string" length="512" not-null="false" />
+		<property name="boundariesContentType" column="boundaries_content_type" type="string" length="512" not-null="false" />
+	</class>
+	
+</hibernate-mapping>

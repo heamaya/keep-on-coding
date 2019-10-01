@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<filter-def name="InternationalizedPresentationPhoto" condition="select id, version, created, name, contentType, :description from :entity">
+		<filter-param name="entityName" type="string"/>
+		<filter-param name="descriptionColumn" type="string"/>
+	</filter-def>
+</hibernate-mapping>

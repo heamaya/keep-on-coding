@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Company" table="company" batch-size="20">
+
+		<id name="id" type="long" column="company_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="name" column="`name`" type="string" length="512" not-null="true" />
+		<property name="tributeKey" column="tributeKey" type="string" length="16" not-null="true" unique="true" />
+		<property name="taxCondition" column="tax_condition" type="tax_condition" not-null="false" />
+		<property name="companyType" column="company_type" type="company_type" not-null="true" />
+		<many-to-one name="address" class="Address" column="address_id" foreign-key="company_address_fk" lazy="false" fetch="join" cascade="save-update, delete" unique="true" />
+		
+		<set name="lands" table="land" inverse="true">
+			<key column="company_id" />
+			<one-to-many class="Land" />
+		</set>
+		
+		<joined-subclass name="CommercialSociety" table="commercial_society" >
+			<key column="commercial_society_id" foreign-key="commercial_society_fk" />
+			
+			<set name="farmers" table="commercial_society_farmer" inverse="false" cascade="save-update">
+				<key column="commercial_society_id" />
+				<many-to-many class="Farmer" column="farmer_id" foreign-key="commercial_society_commercial_society_farmer_fk" />
+			</set>
+			
+			<joined-subclass name="AnonymousCommercialSociety" table="anonymous_commercial_society" >
+				<key column="anonymous_commercial_society_id" foreign-key="anonymous_commercial_society_fk" />
+			</joined-subclass>
+			
+			<joined-subclass name="FactCommercialSociety" table="fact_commercial_society" >
+				<key column="fact_commercial_society_id" foreign-key="fact_commercial_society_fk" />
+			</joined-subclass>
+			
+			<joined-subclass name="LimitedResponsibilityCommercialSociety" table="limited_responsibility_commercial_society" >
+				<key column="limited_responsibility_commercial_society_id" foreign-key="limited_responsimbility_commercial_society_fk" />
+			</joined-subclass>
+		</joined-subclass>	
+		
+		<joined-subclass name="LegalPerson" table="legal_person" >
+			<key column="legal_person_id" foreign-key="legal_person_fk" />
+			<many-to-one name="farmer" class="Farmer" column="farmer_id" foreign-key="legal_person_farmer_fk" lazy="false" unique="true" not-null="false"/>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

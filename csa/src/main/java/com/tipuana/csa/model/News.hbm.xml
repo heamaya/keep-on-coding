@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="News" table="news" batch-size="20">
+
+		<id name="id" type="long" column="news_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true" />
+		<property name="imageFileName" column="image_name" type="string" length="512" not-null="false" />
+		<property name="imageContentType" column="image_content_type" type="string" length="512" not-null="false" />
+		
+		<property name="imageDescriptionSpanish" column="image_description_sp" type="string" length="2048" not-null="false" />
+		 
+		<property name="imageDescriptionPortuguese" column="image_description_pt" type="string" length="2048" not-null="false" />
+		<property name="imageDescriptionEnglish" column="image_description_en" type="string" length="2048" not-null="false" />
+
+ 
+		<property name="titleSpanish" column="title_sp" type="string" length="512" not-null="true" />
+		
+	
+		<property name="titlePortuguese" column="title_pt" type="string" length="512" not-null="false" />
+		<property name="titleEnglish" column="title_en" type="string" length="512" not-null="false" />
+		
+
+		<property name="bodySpanish" column="body_sp" type="string" length="10480" not-null="true" />
+
+		<property name="bodyPortuguese" column="body_pt" type="string" length="10480" not-null="false" />
+		<property name="bodyEnglish" column="body_en" type="string" length="10480" not-null="false" />
+	</class>
+</hibernate-mapping>

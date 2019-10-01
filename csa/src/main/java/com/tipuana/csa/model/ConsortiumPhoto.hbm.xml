@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="ConsortiumPhoto" table="consortium_photo" batch-size="20">
+
+		<id name="id" type="long" column="consortium_photo_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="photoFileName" column="photo_file_name" type="string" length="512" not-null="true" />
+		<property name="photoContentType" column="photo_content_type" type="string" length="512" not-null="true" />
+		<property name="descriptionSpanish" column="description_es" type="string" length="1024" not-null="false" />
+		<property name="descriptionEnglish" column="description_en" type="string" length="1024" not-null="false" />
+		<property name="descriptionPortuguese" column="description_pt" type="string" length="1024" not-null="false" />
+		<many-to-one name="consortium" class="Consortium" column="consortium_id" foreign-key="consortium_photo_consortium_fk" lazy="false" fetch="join" />
+	</class>
+</hibernate-mapping>

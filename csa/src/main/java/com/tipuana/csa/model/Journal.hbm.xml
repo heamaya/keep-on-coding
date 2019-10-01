@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Journal" table="journal" batch-size="20">
+
+		<id name="id" type="long" column="journal_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="fromDate" column="from_date" type="date" not-null="true" unique="true" />
+		<property name="toDate" column="to_date" type="date" not-null="true" unique="true" />	
+		
+		<set name="incomes" table="journal_income_entry" inverse="false" lazy="false" cascade="save-update">
+			<key column="journal_id" foreign-key="journal_income_entry_fk"/>
+			<one-to-many class="JournalIncomeEntry" />
+		</set>
+		
+		<set name="outcomes" table="journal_outcome_entry" inverse="false" lazy="false" cascade="save-update">
+			<key column="journal_id" foreign-key="journal_outcome_entry_fk"/>
+			<one-to-many class="JournalOutcomeEntry" />
+		</set>
+		
+		<property name="incomesAmount" column="incomes_amount" type="double" not-null="true"/>
+		<property name="outcomesAmount" column="outcomes_amount" type="double" not-null="true"/>
+		<property name="revenue" column="revenue" type="double" not-null="true"/>
+		
+		<set name="usersJournal" inverse="true">
+			<key column="journal_id" />
+			<one-to-many class="UserJournal" />	
+		</set>
+	</class>
+</hibernate-mapping>

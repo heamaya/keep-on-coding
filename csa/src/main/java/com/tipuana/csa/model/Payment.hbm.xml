@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Payment" table="payment" batch-size="20">
+	
+		<id name="id" type="long" column="payment_id">
+			<generator class="identity" />
+		</id>
+		
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true" />
+		<property name="paymentDate" column="payment_date" type="date" not-null="true"/>
+		<property name="feeNumber" column="fee_number" type="integer" not-null="true" />
+		<property name="soyaPriceByQuintal" column="soya_price_by_quintal" type="double" not-null="true" />
+		<property name="quintalsPaid" column="quintals_paid" type="double" not-null="true" />
+		<many-to-one name="systematizationProject" class="SystematizationProject" column="systematization_project_id" foreign-key="fk_payment_systematization_project" not-null="true" />
+		<many-to-one name="user" class="User" column="user_id" foreign-key="payment_user_fk" lazy="false" fetch="join" cascade="none" unique="false" not-null="true" />
+	</class>
+</hibernate-mapping>

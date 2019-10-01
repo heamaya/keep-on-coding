@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="VisitorMessage" table="visitor_message" batch-size="20">
+
+		<id name="id" type="long" column="visitor_message_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="firstName" type="string" column="first_name" length="128" not-null="true" />		
+		<property name="lastName" type="string" column="last_name" length="128" not-null="true" />
+		<property name="email" column="email" type="string" length="128" not-null="true" />
+		<property name="message" column="message" type="string" length="1024" not-null="true" />
+		<many-to-one name="province" class="Province" column="province_id" foreign-key="visitor_message_province_fk" lazy="false" fetch="join" not-null="false" />
+		<many-to-one name="city" class="City" column="city_id" foreign-key="visitor_message_city_fk" lazy="false" fetch="join" not-null="false" />
+	</class>
+</hibernate-mapping>

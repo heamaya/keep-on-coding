@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="role" >
+		<param name="enumClassName">com.tipuana.csa.model.Role</param>
+	</typedef>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="tax_condition" >
+		<param name="enumClassName">com.tipuana.csa.model.TaxCondition</param>
+	</typedef>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="work_state" >
+		<param name="enumClassName">com.tipuana.csa.model.WorkState</param>
+	</typedef>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="dike_slope" >
+		<param name="enumClassName">com.tipuana.csa.model.DikeSlope</param>
+	</typedef>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="header_gully_work_type" >
+		<param name="enumClassName">com.tipuana.csa.model.HeaderGullyWorkType</param>
+	</typedef>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="company_type" >
+		<param name="enumClassName">com.tipuana.csa.model.CompanyType</param>
+	</typedef>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="journal_income_entry_type" >
+		<param name="enumClassName">com.tipuana.csa.model.JournalIncomeEntryType</param>
+	</typedef>
+	<typedef class="com.tipuana.csa.persistence.EnumUserType" name="journal_outcome_entry_type" >
+		<param name="enumClassName">com.tipuana.csa.model.JournalOutcomeEntryType</param>
+	</typedef>
+</hibernate-mapping>

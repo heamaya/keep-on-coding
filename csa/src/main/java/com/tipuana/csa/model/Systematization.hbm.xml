@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Systematization" table="systematization" batch-size="20">
+
+		<id name="id" type="long" column="systematization_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<many-to-one name="company" class="Company" column="company_id" foreign-key="systematization_company_fk" lazy="false" fetch="join" />
+		<many-to-one name="land" class="Land" column="land_id" foreign-key="systematization_land_fk" lazy="false" fetch="join" unique="true" />
+		<property name="descriptionSpanish" column="description_es" type="string" length="10240" not-null="false" />
+		<property name="descriptionEnglish" column="description_en" type="string" length="10240" not-null="false" />
+		<property name="descriptionPortuguese" column="description_pt" type="string" length="10240" not-null="false" />
+		<property name="systematizationFileName" type="string" column="systematization_file_name" length="512" not-null="false" />
+		<property name="systematizationContentType" type="string" column="systematization_content_type" length="512" not-null="false" />
+		<property name="starred" type="boolean" column="starred" not-null="true" />
+	
+		<set name="beforePhotos" inverse="true">
+			<key column="systematization_id" foreign-key="systematization_systematization_before_photo_fk" />
+			<one-to-many class="SystematizationBeforePhoto" />
+		</set>
+		
+		<set name="afterPhotos" inverse="true">
+			<key column="systematization_id" foreign-key="systematization_systematization_after_photo_fk" />
+			<one-to-many class="SystematizationAfterPhoto" />
+		</set>
+		
+		<set name="systematizationProjects" inverse="true">
+			<key column="systematization_id" />
+			<one-to-many class="SystematizationProject" />
+		</set>
+	</class>
+</hibernate-mapping>

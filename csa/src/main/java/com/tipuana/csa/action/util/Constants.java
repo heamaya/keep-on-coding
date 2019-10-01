@@ -1,0 +1,84 @@
+package com.tipuana.csa.action.util;
+
+public class Constants {
+	public static final String ADD;
+	public static final String CREATE;
+	public static final String LIST;
+	public static final String SUCCESS;
+	public static final String DELETE;
+	public static final String EDIT;
+	public static final String UPDATE;
+	public static final String FIND;
+	public static final String ERROR;
+	public static final String USER;
+	public static final String INPUT;
+	public static final String COMPANIES_PATH;
+	public static final String CONSORTIUM_PATH;
+	public static final String DIKE_PRESENTATION_PATH;
+	public static final String EROSION_PRESENTATION_PATH;
+	public static final String TERRACE_PRESENTATION_PATH;
+	public static final String HOME_PRESENTATION_PATH;
+	public static final String GULLY_RECOVERY_PRESENTATION_PATH;
+	public static final String CHANNEL_PRESENTATION_PATH;
+	public static final String NEWS_PRESENTATION_PATH;
+	public static final String WHO_WE_ARE_PRESENTATION_PATH;
+	public static final String SPANISH;
+	public static final String PORTUGUESE;
+	public static final String ENGLISH;
+	public static final String SPANISH_START_NAMESPACE;
+	public static final String PORTUGUESE_START_NAMESPACE;
+	public static final String ENGLISH_START_NAMESPACE;
+	public static final String SPANISH_START_ACTION;
+	public static final String PORTUGUESE_START_ACTION;
+	public static final String ENGLISH_START_ACTION;
+	public static final String HOME_PRESENTATION_PHOTO;
+	public static final String DIKE_PRESENTATION_PHOTO;
+	public static final String GULLY_RECOVERY_PRESENTATION_PHOTO;
+	public static final String CHANNEL_PRESENTATION_PHOTO;
+	public static final String WHAT_DO_WE_DO_PRESENTATION_PHOTO;
+	public static final String TERRACE_PRESENTATION_PHOTO;
+	public static final String JOURNAL_ENTRIES_PATH;
+	public static final String JOURNAL_MONTHS_PATH;
+
+	static {
+		ADD = "add";
+		CREATE ="create";
+		LIST = "list";
+		SUCCESS = "success";
+		DELETE = "delete";
+		EDIT = "edit";
+		UPDATE = "update";
+		FIND = "find";
+		ERROR = "error";
+		USER = "user";
+		INPUT = "input";
+		COMPANIES_PATH = new StringBuilder(System.getProperty("user.home")).append("/Companies").toString();
+		CONSORTIUM_PATH = new StringBuilder(System.getProperty("user.home")).append("/Consortiums").toString();
+		DIKE_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/dikePresentationPhotos").toString();
+		EROSION_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/erosionPresentationPhotos").toString();
+		TERRACE_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/terracePresentationPhotos").toString();
+		HOME_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/homePresentationPhotos").toString();
+		GULLY_RECOVERY_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/gullyRecoveryPresentationPhotos").toString();
+		CHANNEL_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/channelPresentationPhotos").toString();
+		NEWS_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/newsPresentationPhotos").toString();
+		WHO_WE_ARE_PRESENTATION_PATH = new StringBuilder(System.getProperty("user.home")).append("/presentationPhotos/whoWeArePresentationPhotos").toString();
+		JOURNAL_ENTRIES_PATH = new StringBuilder(System.getProperty("user.home")).append("/journal/entries").toString();
+		JOURNAL_MONTHS_PATH = new StringBuilder(System.getProperty("user.home")).append("/journal/months").toString();
+		ENGLISH = "en";
+		SPANISH = "es";
+		PORTUGUESE = "pt";
+		ENGLISH_START_NAMESPACE = "/Start";
+		SPANISH_START_NAMESPACE = "/Inicio";
+		PORTUGUESE_START_NAMESPACE = "/Iniciar";
+		ENGLISH_START_ACTION = "Presentation";
+		SPANISH_START_ACTION = "Presentacion";
+		PORTUGUESE_START_ACTION = "Apresentacao";
+		HOME_PRESENTATION_PHOTO = "HomePresentationPhoto";
+		TERRACE_PRESENTATION_PHOTO = "TerracePresentationPhoto";
+		DIKE_PRESENTATION_PHOTO = "DikePresentationPhoto";
+		CHANNEL_PRESENTATION_PHOTO = "ChannelPresentationPhoto";
+		GULLY_RECOVERY_PRESENTATION_PHOTO = "GullyRecoveryPresentationPhoto";
+		WHAT_DO_WE_DO_PRESENTATION_PHOTO = "ErosionPresentationPhoto";
+	}
+	
+}

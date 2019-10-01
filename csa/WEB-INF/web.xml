@@ -1,0 +1,148 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         id="WebApp_ID" 
+         version="2.5">
+  	
+    <servlet>
+    	<servlet-name>spring</servlet-name>
+    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>spring</servlet-name>
+    	<url-pattern>/j_spring_security_check</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>spring</servlet-name>
+    	<url-pattern>/j_spring_security_logout</url-pattern>
+    </servlet-mapping>  
+
+    <context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>
+    		/WEB-INF/spring-data.xml
+    		/WEB-INF/spring-servlet.xml
+    		/WEB-INF/spring-security.xml
+    		<!--  /WEB-INF/spring-service.xml-->
+    	</param-value>
+    </context-param>
+    
+    <listener>
+    	<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>filterChainProxy</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterChainProxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+		<filter-name>filterChainProxy</filter-name>
+		<url-pattern>/struts/*</url-pattern>
+    </filter-mapping>
+
+	<filter>
+		<filter-name>
+			openSessionInViewFilter
+		</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+		
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+  		<init-param>
+    		<param-name>sessionFactoryBeanName</param-name>
+    		<param-value>sessionFactory</param-value>
+  		</init-param> 
+	</filter>
+	
+    <filter-mapping>
+		<filter-name>
+			openSessionInViewFilter
+		</filter-name>
+		<url-pattern>
+			/*
+		</url-pattern>
+	</filter-mapping> 
+	
+	<filter-mapping>
+		<filter-name>
+			openSessionInViewFilter
+		</filter-name>
+		<url-pattern>
+			/struts/*
+		</url-pattern>
+	</filter-mapping>   
+	      
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+		<init-param>
+    		<param-name>actionPackages</param-name>
+    		<param-value>csa.action,csa.action.setup</param-value>
+  		</init-param>
+     </filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+     </filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/struts/*</url-pattern>
+     </filter-mapping>
+     
+ 
+	<listener>
+	    <listener-class>
+      		org.springframework.security.web.session.HttpSessionEventPublisher
+	    </listener-class>
+  	</listener>
+
+     <listener>
+		<listener-class>
+			org.springframework.web.context.request.RequestContextListener
+		</listener-class>
+	</listener>
+
+	<listener>
+     	<listener-class>
+     		com.tipuana.csa.tiles.CustomTilesListener
+     	</listener-class>
+     </listener>
+	<!-- 
+	
+	<listener>
+  		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+	</listener>
+	
+	<context-param>
+        <param-name>
+          org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG
+        </param-name>
+        <param-value>
+          /WEB-INF/tiles.xml,/WEB-INF/tiles_en.xml,/WEB-INF/tiles_pt.xml
+        </param-value>
+    </context-param>
+	
+
+	<context-param>
+		<param-name>
+			org.apache.tiles.preparer.PreparerFactory
+		</param-name>
+		<param-value>
+			org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory
+		</param-value>
+	</context-param>
+	--> 
+</web-app>

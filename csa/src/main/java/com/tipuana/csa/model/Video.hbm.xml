@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Video" table="video" batch-size="20">
+	
+		<id name="id" type="long" column="video_id">
+			<generator class="identity"/>
+		</id>
+	
+		<version name="version" column="object_version" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		
+		<property name="nameSpanish" type="string" column="name_es" length="512" not-null="true" />
+		<property name="namePortuguese" type="string" column="name_pt" length="512" not-null="false" />
+		<property name="nameEnglish" type="string" column="name_en" length="512" not-null="false" />
+		<property name="videoKey" type="string" column="video_key" length="512" not-null="true" />
+		<property name="descriptionSpanish" type="string" column="description_es" length="1024" not-null="false" />
+		<property name="descriptionPortuguese" type="string" column="description_pt" length="1024" not-null="false" />
+		<property name="descriptionEnglish" type="string" column="description_en" length="1024" not-null="false" />
+	</class>
+	
+</hibernate-mapping>

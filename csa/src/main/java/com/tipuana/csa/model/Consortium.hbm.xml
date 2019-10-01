@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.tipuana.csa.model" default-access="property">
+
+	<class name="Consortium" table="consortium" batch-size="20">
+
+		<id name="id" type="long" column="consortium_id">
+			<generator class="identity"/>
+		</id>
+
+		<version name="version" column="object_version" />
+		<property name="name" type="string" column="`name`" length="512" not-null="true" unique="true" />
+		<property name="created" column="created" type="timestamp" update="false" not-null="true"/>
+		<property name="creationDate" column="creation_date" type="date" not-null="false"/>
+		<property name="descriptionSpanish" column="description_es" type="string" length="10240" not-null="false" />
+		<property name="descriptionEnglish" column="description_en" type="string" length="10240" not-null="false" />
+		<property name="descriptionPortuguese" column="description_pt" type="string" length="10240" not-null="false" />
+		<property name="limitContentType" type="string" column="limit_content_type" length="512" not-null="false" />
+		<property name="limitFileName" type="string" column="limit_file_name" length="512" not-null="false" />
+		<property name="northernLimit" type="string" column="northern_limit" length="512" not-null="false" />
+		<property name="southernLimit" type="string" column="southern_limit" length="512" not-null="false" />
+		<property name="easternLimit" type="string" column="eastern_limit" length="512" not-null="false" />
+		<property name="westernLimit" type="string" column="western_limit" length="512" not-null="false" />
+		<property name="starred" type="boolean" column="starred" not-null="true" />
+	
+		<set name="consortiumPhotos" inverse="true">
+			<key column="consortium_id" foreign-key="consortium_consortium_photo_fk" />
+			<one-to-many class="ConsortiumPhoto" />
+		</set>
+	</class>
+</hibernate-mapping>

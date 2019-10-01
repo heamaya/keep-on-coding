@@ -1,0 +1,412 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h5 class="text-success">
+      <b>
+        <span *ngIf="editMode; else add">
+          Editar Cliente
+        </span>
+        <ng-template #add>
+          <span>
+            Agregar Cliente
+          </span>
+        </ng-template>
+      </b>
+    </h5>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-xs-12 well">
+    <form *ngIf="patient"
+      [formGroup]="customerForm"
+      (ngSubmit)="onSubmit()">
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                [attr.disabled]="isSaving?'' : null"
+                formControlName="name"
+                class="form-control">
+                <span
+                  *ngIf="!customerForm.get('name').valid"
+                  class="help-block">
+                  <span class="text-danger">
+                    <b>Debe ingresar el nombre del cliente</b>
+                  </span>
+                </span>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="type">Tipo de empresa</label>
+              <input
+                type="text"
+                id="type"
+                [attr.disabled]="isSaving?'' : null"
+                formControlName="type"
+                class="form-control">
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="activity">Rubro de la empresa</label>
+              <input
+                type="text"
+                id="activity"
+                [attr.disabled]="isSaving?'' : null"
+                formControlName="activity"
+                class="form-control">
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="seniority">Antigüedad</label>
+              <input
+                type="number"
+                id="seniority"
+                [attr.disabled]="isSaving?'' : null"
+                formControlName="seniority"
+                class="form-control">
+              <span
+                *ngIf="!customerForm.get('seniority').valid && customerForm.get('seniority').touched"
+                class="help-block">
+                <span class="text-danger">
+                  <b>Debe ingresar un número entero mayor o igual a 1</b>
+                </span>
+              </span>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="history">Reseña histórica</label>
+            <textarea rows="5"
+              [attr.disabled]="isSaving?'' : null"
+              type="text"
+              formControlName="history"
+              class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="employeesQuantity">Cantidad de empleados</label>
+            <input
+              type="number"
+              id="employeesQuantity"
+              [attr.disabled]="isSaving?'' : null"
+              formControlName="employeesQuantity"
+              class="form-control">
+            <span
+              *ngIf="!customerForm.get('employeesQuantity').valid && customerForm.get('employeesQuantity').touched"
+              class="help-block">
+              <span class="text-danger">
+                <b>Debe ingresar un número entero mayor o igual a 1</b>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="owners">Dueños</label>
+        <div
+          id="owners"
+          class="col-xs-12"
+          formArrayName="owners">
+          <div
+            class="row"
+            *ngFor="let ownerControl of customerForm.get('owners').controls; let i = index"
+            [formGroupName]="i">
+            <div class="col-xs-5">
+              <label for="owner{{i}}FirstName">Nombre</label>
+              <input
+                id="owner{{i}}FirstName"
+                type="text"
+                [attr.disabled]="isSaving?'' : null"
+                class="form-control"
+                formControlName="firstName">
+            </div>
+            <div class="col-xs-5">
+              <label for="owner{{i}}LastName">Apellido</label>
+              <input
+                id="owner{{i}}LastName"
+                type="text"
+                [attr.disabled]="isSaving?'' : null"
+                class="form-control"
+                formControlName="lastName">
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                [disabled]="isSaving"
+                (click)="onDeleteControl('owners', i)">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+             <div class="col-xs-12">
+                <button
+                  type="button"
+                  class="btn btn-success btn-add"
+                  [disabled]="isSaving"
+                  (click)="onAddControl('owners')">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <label for="managers">Administradores</label>
+        <div
+          id="managers"
+          class="col-xs-12"
+          formArrayName="managers">
+          <div
+            class="row"
+            *ngFor="let managerControl of customerForm.get('managers').controls; let i = index"
+            [formGroupName]="i">
+            <div class="col-xs-5">
+              <label for="manager{{i}}FirstName">Nombre</label>
+              <input
+                id="manager{{i}}FirstName"
+                type="text"
+                [attr.disabled]="isSaving?'' : null"
+                class="form-control"
+                formControlName="firstName">
+            </div>
+            <div class="col-xs-5">
+              <label for="manager{{i}}LastName">Apellido</label>
+              <input
+                id="manager{{i}}LastName"
+                type="text"
+                [attr.disabled]="isSaving?'' : null"
+                class="form-control"
+                formControlName="lastName">
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                [disabled]="isSaving"
+                (click)="onDeleteControl('managers', i)">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button
+                  type="button"
+                  class="btn btn-success btn-add"
+                  [disabled]="isSaving"
+                  (click)="onAddControl('managers')">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </div>
+            </div>
+         </div>
+     </div>
+     <div class="row">
+       <label for="consultantReferrings">Referentes para el consultor</label>
+       <div
+        id="consultantReferrings"
+        class="col-xs-12"
+        formArrayName="consultantReferrings">
+        <div
+          class="row"
+          *ngFor="let consultantReferringControl of customerForm.get('consultantReferrings').controls; let i = index"
+          [formGroupName]="i">
+          <div class="col-xs-5">
+            <label for="consultantReferring{{i}}FirstName">Nombre</label>
+            <input
+              id="consultantReferring{{i}}FirstName"
+              type="text"
+              [attr.disabled]="isSaving?'' : null"
+              class="form-control"
+              formControlName="firstName">
+          </div>
+          <div class="col-xs-5">
+            <label for="consultantReferring{{i}}LastName">Apellido</label>
+            <input
+              id="consultantReferring{{i}}LastName"
+              type="text"
+              [attr.disabled]="isSaving?'' : null"
+              class="form-control"
+              formControlName="lastName">
+          </div>
+          <div class="col-xs-2">
+            <button
+              type="button"
+              class="btn btn-danger"
+              [disabled]="isSaving"
+              (click)="onDeleteControl('consultantReferrings', i)">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success btn-add"
+                [disabled]="isSaving"
+                (click)="onAddControl('consultantReferrings')">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="interventionAreas">Áreas de intervención</label>
+        <div
+          id="interventionAreas"
+          class="col-xs-12"
+          formArrayName="interventionAreas">
+          <div
+            class="row"
+            *ngFor="let interventionAreaControl of customerForm.get('interventionAreas').controls; let i = index"
+            [formGroupName]="i">
+            <div class="col-xs-10">
+              <input
+                type="text"
+                [attr.disabled]="isSaving?'' : null"
+                class="form-control"
+                formControlName="name">
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                [disabled]="isSaving"
+                (click)="onDeleteControl('interventionAreas', i)">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button
+                  type="button"
+                  class="btn btn-success btn-add"
+                  [disabled]="isSaving"
+                  (click)="onAddControl('interventionAreas')">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="consultationReason">Razón de la consulta</label>
+              <input
+                type="consultationReason"
+                id="consultationReason"
+                [attr.disabled]="isSaving?'' : null"
+                formControlName="consultationReason"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="diagnosisSummary">Resumen del diagnóstico</label>
+              <textarea rows="5"
+                [attr.disabled]="isSaving?'' : null"
+                type="text"
+                formControlName="diagnosisSummary"
+                class="form-control">
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="anotherInformation">Otra información</label>
+              <textarea rows="5"
+                [attr.disabled]="isSaving?'' : null"
+                type="text"
+                formControlName="anotherInformation"
+                class="form-control">
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div>
+            <h5><b>Consultores</b></h5>
+            <tag-input [formControlName]="'consultants'"
+                       [onlyFromAutocomplete]="true"
+                       [displayBy]="'name'"
+                       [identifyBy]="'id'"
+                       [placeholder]="'Ingrese un consultor'"
+                       [secondaryPlaceholder]="'Ingrese un consultor'"
+                       name="consultants"
+                       theme="bootstrap">
+                <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                    [displayBy]="'name'"
+                                    [identifyBy]="'id'"
+                                    [autocompleteItems]="autocompleteConsultants">
+                </tag-input-dropdown>
+            </tag-input>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label class="btn btn-default btn-file">
+              <b>Entrevistas</b>
+              <input
+                type="file"
+                [attr.disabled]="isSaving?'' : null"
+                (change)="detectFiles($event)">
+            </label>
+          </div>
+        </div>
+        <div class="row" *ngIf="currentUpload">
+          <div class="progress upload-progress-bar">
+            <div
+              class="progress-bar progress-bar-animated"
+              [ngStyle]="{ 'width': currentUpload?.progress + '%' }">
+            </div>
+          </div>
+          <b>
+            Progreso: {{currentUpload?.name}} {{currentUpload?.progress | number:'1.2-2'}}% Completo
+          </b>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!customerForm.valid || isSaving">
+                Guardar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              [disabled]="isSaving"
+              (click)="onCancel()">
+                Cancelar
+            </button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

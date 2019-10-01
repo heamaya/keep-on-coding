@@ -1,0 +1,37 @@
+<div class="list-group-item-heading">
+  {{ consultant.firstName }} {{ consultant.lastName }}
+</div>
+<div class="list-group-item-text">
+  <img *ngIf="consultant.profilePicture"
+    src="{{consultant.profilePicture.url}}"
+    class="responsive img-thumbnail"
+    style="max-height:150px;"
+  />
+  <div class="pull-right">
+    <button
+      class="btn btn-info"
+      type="button"
+      (click)="onShow()">
+      Ver
+      <span class="glyphicon glyphicon-eye-open">
+      </span>
+    </button>
+    <button *ngIf="getConsultantService().canEdit(consultant)"
+      class="btn btn-warning"
+      type="button"
+      (click)="onEdit()">
+      Editar
+      <span class="glyphicon glyphicon-pencil">
+      </span>
+    </button>
+    <button
+      *ngIf="getConsultantService().canDelete(consultant)"
+      class="btn btn-danger"
+      type="button"
+      (click)="onDelete()">
+      Borrar
+      <span class="glyphicon glyphicon-minus">
+      </span>
+    </button>
+  <div>
+</div>

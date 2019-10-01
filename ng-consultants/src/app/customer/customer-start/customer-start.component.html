@@ -1,0 +1,8 @@
+<h5 *ngIf="isAdmin(); else customerStartIsConsultant" class="text-info">
+  Agrega un nuevo Cliente o realiza alguna acción sobre uno existente
+</h5>
+<ng-template #customerStartIsConsultant>
+  <h5 class="text-info">
+    Conoce a los clientes de la consultora
+  </h5>
+</ng-template>

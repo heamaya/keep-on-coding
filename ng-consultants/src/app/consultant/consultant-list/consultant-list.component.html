@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button *ngIf="getConsultantService().canAdd()"
+      class="btn btn-primary"
+      (click)="onNewConsultant()">
+        Agregar
+        <span class="glyphicon glyphicon-plus">
+        </span>
+    </button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li
+        class="list-group-item list-group-item-info clearfix"
+        *ngFor="let consultant of consultants">
+        <app-consultant-item [consultant]="consultant" >
+        </app-consultant-item>
+      </li>
+    </ul>
+  </div>
+</div>

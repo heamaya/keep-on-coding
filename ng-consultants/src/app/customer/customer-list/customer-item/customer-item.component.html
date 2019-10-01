@@ -1,0 +1,36 @@
+<div class="list-group-item-heading">
+  {{ customer.name }}
+</div>
+<div class="list-group-item-text">
+  <div class="text-info">
+    {{ customer.history }}
+  </div>
+  <div class="pull-right">
+    <button
+      class="btn btn-info"
+      type="button"
+      (click)="onShow()">
+      Ver
+      <span class="glyphicon glyphicon-eye-open">
+      </span>
+    </button>
+    <button
+      *ngIf="getCustomerService().canEdit()"
+      class="btn btn-warning"
+      type="button"
+      (click)="onEdit()">
+      Editar
+      <span class="glyphicon glyphicon-pencil">
+      </span>
+    </button>
+    <button
+      *ngIf="getCustomerService().canDelete()"
+      class="btn btn-danger"
+      type="button"
+      (click)="onDelete()">
+      Borrar
+      <span class="glyphicon glyphicon-minus">
+      </span>
+    </button>
+  <div>
+</div>

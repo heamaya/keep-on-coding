@@ -1,0 +1,274 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h5 class="text-success">
+      <b>
+        <span>Ver Cliente</span>
+      </b>
+    </h5>
+  </div>
+</div>
+<hr />
+<div class="row" *ngIf="patient">
+  <div class="col-xs-12 well">
+    <div class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Nombre:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.name }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.type" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Tipo de empresa:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.type }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.activity" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Rubro de la empresa:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.activity }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.seniority" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Antigüedad:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.seniority }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.history" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Reseña histórica:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.history }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.employeesQuantity" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Cantidad de empleados:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.employeesQuantity }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.owners?.length > 0" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Dueños:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+    </div>
+    <div *ngFor="let owner of customer.owners" class="row">
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ owner.firstName }} {{ owner.lastName }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.managers?.length > 0" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Administradores:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+    </div>
+    <div *ngFor="let manager of customer.managers" class="row">
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ manager.firstName }} {{ manager.lastName }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.consultantReferrings?.length > 0" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Referentes para el consultor:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+    </div>
+    <div *ngFor="let consultantReferring of customer.consultantReferrings" class="row">
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ consultantReferring.firstName }} {{ consultantReferring.lastName }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.interventionAreas?.length > 0" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Áreas de intervención:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+    </div>
+    <div *ngFor="let interventionArea of customer.interventionAreas" class="row">
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ interventionArea.name }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.consultationReason" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Razón de la consulta:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.consultationReason }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.diagnosisSummary" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Resumen del diagnóstico:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.diagnosisSummary }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.anotherInformation" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Otra información:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ customer.anotherInformation }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="consultants.length > 0" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Consultores:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+    </div>
+    <div *ngFor="let consultant of consultants" class="row">
+      <div class="col-xs-6">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <span class="text-info">
+          {{ consultant.firstName }} {{ consultant.lastName }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="customer.interviews" class="row">
+      <div class="col-xs-6">
+        <span class="text-info">
+          <b>Entrevistas:</b>
+        </span>
+      </div>
+      <div class="col-xs-6">
+        <a
+          href="{{customer.interviews.url}}"
+          class="btn btn-info"
+          role="button">
+          Descargar
+          <span class="glyphicon glyphicon-download">
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10">
+        <span>
+          &nbsp;
+        </span>
+      </div>
+      <div class="col-xs-2">
+        <button
+            type="button"
+            class="btn btn-success"
+            (click)="onReturn()">
+              Ok
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8fc4b77f-7b95-456a-9b49-23a803b89b59" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="jhtp" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>maven</find>
+      <find>0</find>
+      <find>&quot;#&quot;</find>
+      <find>&quot;.&quot;</find>
+      <find>System.out.print</find>
+      <find>start</find>
+      <find>Yay</find>
+      <find>public</find>
+      <find>character</find>
+      <find>Character</find>
+      <find>'</find>
+      <find>E</find>
+      <find>output</find>
+      <find>count</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ZERO</replace>
+      <replace>NUMBER?</replace>
+      <replace>D</replace>
+      <replace>end</replace>
+      <replace>private</replace>
+      <replace>operator2</replace>
+      <replace>String</replace>
+      <replace>&quot;</replace>
+      <replace>Integer</replace>
+      <replace>elements</replace>
+    </replaceStrings>
+  </component>
+  <component name="ProjectId" id="1Q1EyqLoxzj1hxoctwRLwn1cHJ9" />
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534192957430" />
+    <property name="extract.method.default.visibility" value="public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../network" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="IntroduceConstantDialog.RECENTS_KEY">
+      <recent name="chapter20.exercise5.GenericPrintArray" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/chapter23/exercise20" />
+      <recent name="$PROJECT_DIR$/src/chapter23/exercise19" />
+      <recent name="$PROJECT_DIR$/src/chapter23/exercise18" />
+      <recent name="$PROJECT_DIR$/src/chapter23/exercise16" />
+      <recent name="$PROJECT_DIR$/src/chapter23/exercise15" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="chapter23.exercise21" />
+      <recent name="chapter23.exercise17" />
+      <recent name="chapter21.exercise27" />
+      <recent name="chapter21.exercise22" />
+      <recent name="chapter21.exercise23" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Arithmetic">
+    <configuration name="Arithmetic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter02.exercise15.Arithmetic" />
+      <module name="jhtp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chapter02.exercise15.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CircularBuffer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter23.exercise13.CircularBuffer" />
+      <module name="jhtp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chapter23.exercise13.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MergeSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter23.exercise20.MergeSort" />
+      <module name="jhtp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chapter23.exercise20.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuickSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter23.exercise21.QuickSort" />
+      <module name="jhtp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chapter23.exercise21.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TextAnalysis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chapter14.exercise18.TextAnalysis" />
+      <module name="jhtp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chapter14.exercise18.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MergeSort" />
+      <item itemvalue="Application.QuickSort" />
+      <item itemvalue="Application.TextAnalysis" />
+      <item itemvalue="Application.CircularBuffer" />
+      <item itemvalue="Application.Arithmetic" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Arithmetic" />
+        <item itemvalue="Application.CircularBuffer" />
+        <item itemvalue="Application.QuickSort" />
+        <item itemvalue="Application.TextAnalysis" />
+        <item itemvalue="Application.MergeSort" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8fc4b77f-7b95-456a-9b49-23a803b89b59" name="Default Changelist" comment="" />
+      <created>1532976384535</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532976384535</updated>
+      <workItem from="1532976387691" duration="647000" />
+      <workItem from="1533151597308" duration="856000" />
+      <workItem from="1533252353484" duration="599000" />
+      <workItem from="1533836830982" duration="1695000" />
+      <workItem from="1534173645341" duration="1941000" />
+      <workItem from="1553554624589" duration="64000" />
+      <workItem from="1554148472218" duration="672000" />
+      <workItem from="1554160024942" duration="1281000" />
+      <workItem from="1554161324058" duration="426000" />
+      <workItem from="1554161765906" duration="538000" />
+      <workItem from="1554162327633" duration="1064000" />
+      <workItem from="1554163409576" duration="114000" />
+      <workItem from="1554163740250" duration="1272000" />
+      <workItem from="1554210264109" duration="291000" />
+      <workItem from="1554231008031" duration="38000" />
+      <workItem from="1554231769758" duration="439000" />
+      <workItem from="1554232772123" duration="224000" />
+      <workItem from="1554234469559" duration="3434000" />
+      <workItem from="1554325478963" duration="1358000" />
+      <workItem from="1554333665121" duration="2427000" />
+      <workItem from="1554841889231" duration="696000" />
+      <workItem from="1554900088683" duration="4603000" />
+      <workItem from="1554992374078" duration="1271000" />
+      <workItem from="1555180605033" duration="2952000" />
+      <workItem from="1555280524497" duration="4446000" />
+      <workItem from="1555332256211" duration="10905000" />
+      <workItem from="1555343188675" duration="10355000" />
+      <workItem from="1555423332112" duration="6777000" />
+      <workItem from="1555598357506" duration="11024000" />
+      <workItem from="1555629037793" duration="12250000" />
+      <workItem from="1555684856787" duration="22110000" />
+      <workItem from="1555889363116" duration="980000" />
+      <workItem from="1555890670372" duration="2473000" />
+      <workItem from="1557515570262" duration="3740000" />
+      <workItem from="1557598298309" duration="5881000" />
+      <workItem from="1557678130261" duration="5975000" />
+      <workItem from="1557754989983" duration="17983000" />
+      <workItem from="1558027875957" duration="13000" />
+      <workItem from="1558027919254" duration="613000" />
+      <workItem from="1558035819003" duration="10527000" />
+      <workItem from="1558125225191" duration="5201000" />
+      <workItem from="1558287140538" duration="12906000" />
+      <workItem from="1558360779892" duration="7267000" />
+      <workItem from="1558449213008" duration="630000" />
+      <workItem from="1558479765540" duration="623000" />
+      <workItem from="1558539341499" duration="645000" />
+      <workItem from="1558714283837" duration="675000" />
+      <workItem from="1558724758243" duration="10989000" />
+      <workItem from="1558736005216" duration="136000" />
+      <workItem from="1558790848516" duration="7116000" />
+      <workItem from="1558797987502" duration="3497000" />
+      <workItem from="1558818346812" duration="3029000" />
+      <workItem from="1558882212597" duration="4915000" />
+      <workItem from="1558963224083" duration="7853000" />
+      <workItem from="1558980873683" duration="3923000" />
+      <workItem from="1558988407433" duration="7673000" />
+      <workItem from="1559050544138" duration="13550000" />
+      <workItem from="1559134079773" duration="10313000" />
+      <workItem from="1559172337489" duration="5233000" />
+      <workItem from="1559224043800" duration="1683000" />
+      <workItem from="1559243144869" duration="8036000" />
+      <workItem from="1559253383936" duration="4225000" />
+      <workItem from="1559309407033" duration="12435000" />
+      <workItem from="1559335481657" duration="7462000" />
+      <workItem from="1559436091509" duration="2847000" />
+      <workItem from="1559566822837" duration="11982000" />
+      <workItem from="1559654156545" duration="4012000" />
+      <workItem from="1559772760524" duration="2398000" />
+      <workItem from="1559859596600" duration="838000" />
+      <workItem from="1559916893877" duration="7270000" />
+      <workItem from="1559935253690" duration="7298000" />
+      <workItem from="1559944127256" duration="47000" />
+      <workItem from="1560007299707" duration="1565000" />
+      <workItem from="1560182312543" duration="7168000" />
+      <workItem from="1560268888798" duration="1484000" />
+      <workItem from="1560543769578" duration="432000" />
+      <workItem from="1562100527427" duration="824000" />
+      <workItem from="1562948630440" duration="725000" />
+      <workItem from="1566929962686" duration="1367000" />
+      <workItem from="1567606079934" duration="8000" />
+      <workItem from="1567606348260" duration="2090000" />
+      <workItem from="1567797692840" duration="1265000" />
+      <workItem from="1568048295722" duration="29000" />
+      <workItem from="1568231854733" duration="2243000" />
+      <workItem from="1568404797720" duration="2428000" />
+      <workItem from="1568728394886" duration="1261000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/jhtp$Tree.ic" NAME="Tree Coverage Results" MODIFIED="1559326393986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>chapter21.exercise22.*</FILTER>
+    </SUITE>
+  </component>
+</project>

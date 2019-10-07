@@ -34,14 +34,7 @@ public class RecursiveDirectoryTraversal {
                 .collect(Collectors.groupingBy(
                     f -> {
                         final int indexOfDot = f.getName().indexOf(".");
-                        final String type;
-                        if (indexOfDot == -1) {
-                            type = "none";
-                        }
-                        else {
-                            type = f.getName().substring(indexOfDot + 1);
-                        }
-                        return type.toLowerCase();
+                        return indexOfDot == -1 ? "none" : f.getName().substring(indexOfDot + 1).toLowerCase();
                     },
                     TreeMap::new,
                     Collectors.counting())
